@@ -1,0 +1,344 @@
+BfW v1.14.6
+===========
+
+--------- Cuttle Fish attack uruga (boss Orc Warrior OIcs1) :
+
+{
+    [1] = {
+        [1] = movement_costs,
+        [2] = {
+            ["sand"] = 4,
+            ["frozen"] = 2,
+            ["flat"] = 4,
+            ["swamp_water"] = 2,
+            ["reef"] = 2,
+            ["shallow_water"] = 2,
+            ["village"] = 2,
+            ["hills"] = 5,
+            ["castle"] = 1,
+            ["cave"] = 3,
+            ["forest"] = 5,
+            ["fungus"] = 3,
+            ["deep_water"] = 1,
+        } ,
+    } ,
+    [2] = {
+        [1] = defense,
+        [2] = {
+            ["sand"] = 70,
+            ["frozen"] = 70,
+            ["flat"] = 70,
+            ["swamp_water"] = 60,
+            ["reef"] = 50,
+            ["shallow_water"] = 50,
+            ["village"] = 70,
+            ["hills"] = 70,
+            ["castle"] = 70,
+            ["cave"] = 80,
+            ["forest"] = 70,
+            ["fungus"] = 80,
+            ["deep_water"] = 40,
+        } ,
+    } ,
+    [3] = {
+        [1] = resistance,
+        [2] = {
+        ["fire"] = 100,
+        ["impact"] = 70,
+        ["arcane"] = 80,
+        ["blade"] = 80,
+        ["pierce"] = 100,
+        ["cold"] = 40,
+        } ,
+    } ,
+    [4] = {
+        [1] = status,
+        [2] = {
+            ["uncovered"] = true,
+        } ,
+    } ,
+    [5] = {
+        [1] = attack,
+        [2] = {
+            [1] = {
+                [1] = specials,
+                [2] = {
+                    [1] = {
+                        [1] = swarm,
+                        [2] = {
+                            ["name"] = essaim,
+                            ["description"] = Le nombre de frappes de cette attaque diminue lorsque l'unité est blessée. Ce nombre est proportionnel aux points de vie restants. Par exemple une unité avec 3/4 de ses points de vie aura 3/4 de ses frappes.,
+                            ["id"] = swarm,
+                        } ,
+                    } ,
+                } ,
+            } ,
+            ["parry"] = 0,
+            ["description"] = tentacule,
+            ["max_range"] = 1,
+            ["damage"] = 3,
+            ["icon"] = attacks/tentacle.png,
+            ["movement_used"] = 100000,
+            ["type"] = impact,
+            ["min_range"] = 1,
+            ["number"] = 10,
+            ["attack_weight"] = 1,
+            ["name"] = tentacle,
+            ["range"] = melee,
+            ["accuracy"] = 0,
+            ["defense_weight"] = 1,
+        } ,
+    } ,
+    [6] = {
+        [1] = attack,
+        [2] = {
+            [1] = {
+                [1] = specials,
+                [2] = {
+                    [1] = {
+                        [1] = poison,
+                        [2] = {
+                            ["name"] = empoisonnement,
+                            ["description"] = Cette attaque empoisonne des cibles vivantes,
+                                    qui perdent 8 points de vie chaque tour,
+                                    jusqu'à ce qu'elles soient guéries ou qu'elles n'aient plus qu'un seul point de vie. Le poison seul ne peut pas tuer une unité.,
+                            ["id"] = poison,
+                        } ,
+                    } ,
+                } ,
+            } ,
+            ["parry"] = 0,
+            ["description"] = encre,
+            ["max_range"] = 1,
+            ["damage"] = 6,
+            ["icon"] = attacks/ink.png,
+            ["movement_used"] = 100000,
+            ["type"] = pierce,
+            ["min_range"] = 1,
+            ["number"] = 2,
+            ["attack_weight"] = 1,
+            ["name"] = ink,
+            ["range"] = ranged,
+            ["accuracy"] = 0,
+            ["defense_weight"] = 1,
+        } ,
+    } ,
+    [7] = {
+        [1] = advancement,
+        [2] = {
+            [1] = {
+                [1] = effect,
+                [2] = {
+                    ["increase_total"] = 3,
+                    ["apply_to"] = hitpoints,
+                    ["heal_full"] = true,
+                } ,
+            } ,
+            [2] = {
+                [1] = effect,
+                [2] = {
+                    ["apply_to"] = max_experience,
+                    ["increase"] = 20%,
+                } ,
+            } ,
+            [3] = {
+                [1] = effect,
+                [2] = {
+                    ["apply_to"] = status,
+                    ["remove"] = poisoned,
+                } ,
+            } ,
+            [4] = {
+                [1] = effect,
+                [2] = {
+                    ["apply_to"] = status,
+                    ["remove"] = slowed,
+                } ,
+            } ,
+            ["description"] = Bonus de PV max +3,
+             XP max +20 %,
+            ["id"] = amla_default,
+            ["strict_amla"] = true,
+            ["max_times"] = 100,
+            ["image"] = icons/amla-default.png,
+        } ,
+    } ,
+    [8] = {
+        [1] = variables,
+        [2] = {
+            [1] = {
+                [1] = aww_backup,
+                [2] = { } ,
+            } ,
+        } ,
+    } ,
+    [9] = {
+        [1] = filter_recall,
+        [2] = { } ,
+    } ,
+    [10] = {
+        [1] = modifications,
+        [2] = { } ,
+    } ,
+    [11] = {
+        [1] = abilities,
+        [2] = { } ,
+    } ,
+    ["moves"] = 0,
+    ["type"] = Cuttle Fish,
+    ["vision"] = -1,
+    ["recall_cost"] = -1,
+    ["hitpoints"] = 67,
+    ["hidden"] = false,
+    ["random_traits"] = false,
+    ["undead_variation"] = swimmer,
+    ["max_attacks"] = 1,
+    ["zoc"] = true,
+    ["facing"] = n,
+    ["halo"] = ,
+    ["flag_rgb"] = magenta,
+    ["upkeep"] = full,
+    ["advances_to"] = ,
+    ["experience"] = 0,
+    ["alignment"] = neutral,
+    ["overlays"] = ,
+    ["generate_name"] = false,
+    ["max_hitpoints"] = 67,
+    ["y"] = 4,
+    ["x"] = 4,
+    ["image"] = units/monsters/cuttlefish.png,
+    ["max_moves"] = 8,
+    ["level"] = 2,
+    ["goto_x"] = -999,
+    ["underlying_id"] = 6,
+    ["image_icon"] = ,
+    ["usage"] = fighter,
+    ["small_profile"] = ,
+    ["unrenamable"] = false,
+    ["side"] = 1,
+    ["resting"] = false,
+    ["extra_recruit"] = ,
+    ["goto_y"] = -999,
+    ["role"] = ,
+    ["profile"] = ,
+    ["name"] = ,
+    ["race"] = monster,
+    ["id"] = Cuttle Fish-6,
+    ["language_name"] = Calamar,
+    ["max_experience"] = 100,
+    ["jamming"] = 0,
+    ["gender"] = male,
+    ["variation"] = ,
+    ["attacks_left"] = 0,
+    ["cost"] = 40,
+} "
+
+
+
+
+--------- uruga (boss Orc Warrior OIcs1) attack Cuttle Fish:
+
+
+attacker_data :
+{
+  [1] = {
+    [1] = movement_costs,
+    [2] = {
+     ["sand"] = 2, ["cave"] = 2, ["flat"] = 1, ["swamp_water"] = 3,
+     ["mountains"] = 2,["shallow_water"] = 3,["village"] = 1,["reef"] = 2,["castle"] = 1,["frozen"] = 2,
+     ["forest"] = 2,["hills"] = 1,["fungus"] = 3,} ,
+  },
+  [2] = {
+      [1] = defense,
+      [2] = {
+        ["sand"] = 70,["cave"] = 60,["flat"] = 60,["swamp_water"] = 70,["mountains"] = 40,["shallow_water"] = 80,["village"] = 40,
+        ["reef"] = 70,["castle"] = 40,["frozen"] = 80,["forest"] = 50,["hills"] = 50,["fungus"] = 60,
+      } ,
+  },
+  [3] = {
+    [1] = resistance,[2] = {
+        ["fire"] = 100,["impact"] = 100,["arcane"] = 100,["blade"] = 100,["pierce"] = 100,["cold"] = 100,
+    },
+  },
+  [4] = {
+    [1] = attack,
+    [2] = {
+        [1] = {
+            [1] = specials,
+            [2] = { } ,
+        } ,
+        ["parry"] = 0,
+        ["description"] = grande épée,
+        ["max_range"] = 1,
+        ["damage"] = 10,
+        ["icon"] = attacks/greatsword-orcish.png,
+        ["movement_used"] = 100000,["type"] = blade,
+        ["min_range"] = 1,
+        ["number"] = 3,
+        ["attack_weight"] = 1,
+        ["name"] = greatsword,
+        ["range"] = melee,["accuracy"] = 0,
+        ["defense_weight"] = 1,
+    } ,
+  } ,
+  [5] = {
+    [1] = variables,
+    [2] = {
+        [1] = {
+            [1] = aww_backup,
+            [2] = { } ,
+        } ,
+    } ,
+  } ,
+  [6] = {
+   [1] = filter_recall,[2] = { } ,
+  } ,
+  [7] = {
+    [1] = status,[2] = { } ,
+  } ,
+  [8] = {
+    [1] = modifications,[2] = { } ,
+  } ,
+  [9] = {
+    [1] = abilities,[2] = { } ,
+  } ,
+  ["moves"] = 5,
+  ["type"] = Orcish Warrior,
+  ["vision"] = -1,
+  ["recall_cost"] = -1,
+  ["hitpoints"] = 58,
+  ["hidden"] = false,
+  ["random_traits"] = false,
+  ["undead_variation"] = ,
+  ["max_attacks"] = 1,
+  ["zoc"] = true,
+  ["facing"] = se,["goto_x"] = 0,
+  ["flag_rgb"] = magenta,["upkeep"] = full,
+  ["advances_to"] = Orcish Warlord,
+  ["experience"] = 0,["alignment"] = chaotic,
+  ["overlays"] = ,["y"] = 3,["generate_name"] = true,
+  ["max_hitpoints"] = 58,
+  ["x"] = 4,
+  ["gender"] = male,
+  ["image"] = units/orcs/warrior.png,
+  ["max_moves"] = 5,["level"] = 2,
+  ["usage"] = fighter,
+  ["underlying_id"] = 3,
+  ["image_icon"] = ,["side"] = 2,
+  ["small_profile"] = ,
+  ["unrenamable"] = false,["role"] = ,
+  ["resting"] = false,
+  ["extra_recruit"] = ,["id"] = Urugha,
+  ["max_experience"] = 60,["profile"] = portraits/orcs/warrior.png,["race"] = orc,
+  ["name"] = Urugha,["language_name"] = Guerrier orc,
+  ["canrecruit"] = true,[
+  "jamming"] = 0,[
+  "goto_y"] = 0,
+  ["halo"] = ,
+  ["variation"] = ,
+  ["attacks_left"] = 1,
+  ["cost"] = 26,
+}
+
+
+
