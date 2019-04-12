@@ -1,0 +1,20 @@
+root = true
+
+[*]
+end_of_line = lf
+
+[*.{map,pot,po}]
+charset = utf-8
+
+[*.{cfg,ma.cfg,lua}]
+charset = utf-8
+indent_style = tab
+max_line_length=200
+trim_trailing_whitespace = true
+insert_final_newline = true
+
+[*.{cfg,ma.cfg}]
+indent_style = space
+
+[*.lua]
+indent_style = tab
