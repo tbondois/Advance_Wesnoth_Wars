@@ -3,17 +3,15 @@ root = true
 [*]
 end_of_line = lf
 
-[*.{map,pot,po}]
+[*.{cfg,lua,map,pbl,ign,pot,po,md,txt}]
+# careful : .mo are not utf-8
 charset = utf-8
 
-[*.{cfg,ma.cfg,lua}]
-charset = utf-8
-indent_style = tab
+[*.{cfg,lua}]
 max_line_length=200
 trim_trailing_whitespace = true
 insert_final_newline = true
-
-[*.{cfg,ma.cfg}]
+indent_size = 4
 indent_style = space
 
 [*.lua]

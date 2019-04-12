@@ -49,7 +49,7 @@ wesnoth.wml_actions.event{
 
 
 wesnoth.wml_actions.event{
-	name="attack end",
+	name="attack_end",
 	id="aww_post_attack_event",
 	first_time_only=false,
 	{ "aww_restore_properties", {
@@ -149,7 +149,7 @@ function wesnoth.wml_actions.aww_attack_action(cfg)
 								ignore_strike_edit = true
 							end
 
-							-- managing special hit rating from weapon, not depending of terrain, like Magical :
+							-- managing special misses probabilities from weapon, not depending of terrain, like Magical :
 
 							if attacker_data[a][2][wa][2][s][1] == "chance_to_hit" then
 								if attacker_data[a][2][wa][2][s][2].active_on ~= "offense" or attacker_data.id == u1.id then

@@ -2,7 +2,37 @@
 
 For more clarity about compatibility, first 2 version numbers will follow base game version.
 
-So 1.14.x.y means game was checked compatible with Wesnoth 1.14. x is incremented for new features ; y is increment for fixes.
+So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremented for new features ; Y is increment for fixes/optimisations.
+
+## [1.14.14.0] - 2018-04-13
+
+### Added
+- Feature #15 : Level-Up After Max Level Advancement : Increase Level Number (default ON)
+- Explanations in README.md and code adaption (aww_status.lua, aww_duel.lua) to enabled/disable feature during a game/campaign
+- aww_status.run.lua (to separate aww_status declaration from execution)
+- aww_status.lua : some functions to manage disable/enable features
+- events _enable _restart, _reset on most features impacting units, to revert / re-enable changes (experimental)
+
+### Changed
+- Feature #13 : Ambush Tweak no longer in beta, added hides cooldown of 1 turn after surprise/normal attack
+- Options numbers are now the same as feature numbers.
+- Squad Mode Custom : strikes special effect is now a cumulative multiplier, instead of a not-cumulative
+- Squad Mode : Swarm : attacks having 1 base strike will do reduced HP-related damages, like in Custom Mode.
+- NoRandomCombats & Squad Mode : added + 0.01 to multiplier to prevent a round down and get a round(.5)
+- Feature "Gifted heroes" renamed "Epic heroes"
+- balancing Epic heroes : don't include anymore "leadership" ability (already give custom regen 4/slowed + distract)
+- Some adjustments on gifted trait stats, and renamed it "epic"
+- Max attack damage points earned with "Fury" changed from 15 to 10
+- Somes changes in scenario + map 4p_Ruvaak_Mirage_Atoll (now v1.4)
+- gettext : textdomains wesnoth-aww and wesnoth-aww-rma merged in one "aww" (and scenario translation reworks)
+- macro files *.ma.cfg renamed *.mac.cfg
+
+### Fixed
+- LUA error sometimes in the end of scenario when NoRandom-Combats/Squad Mode Custom is enabled and no side is defined : (Saw Voyage of a drake > skip tutorial)
+- Healing XP : apply to ability-type "heals" instead of only ability id "healing". Optimized not-poisoned filter.
+
+### Deleted
+- useless about.cfg
 
 ## [1.14.13.0] - 2018-04-04
 
