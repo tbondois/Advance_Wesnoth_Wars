@@ -343,7 +343,6 @@ function aww_status.update_feature_07(value)
 		aww_status.message_info(id)
 		if (aww_status.feature_01 or aww_status.feature_02 > 0) then
 			wesnoth.fire_event('aww_event_reload_duel')
-			wesnoth.fire_event("aww_event_01_02_reset")
 		end
 	end
 	return value
