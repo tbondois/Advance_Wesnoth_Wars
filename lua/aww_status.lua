@@ -105,7 +105,7 @@ function aww_status.migrate(from_version)
 
 	if from_version ~= nil then
 		wesnoth.message("AWW notice", "migrating from version ".. wesnoth.get_variable("aww_version") .. " to ".. aww_status.version)
-		wesnoth.set_variable("aww_migrated_version", prev_version)
+		wesnoth.set_variable("aww_migrated_version", from_version)
 	end
 end
 
