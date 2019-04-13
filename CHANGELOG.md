@@ -26,6 +26,7 @@ So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremente
 - Somes changes in scenario + map 4p_Ruvaak_Mirage_Atoll (now v1.4)
 - gettext : textdomains wesnoth-aww and wesnoth-aww-rma merged in one "aww" (and scenario translation reworks)
 - macro files *.ma.cfg renamed *.mac.cfg
+- uses of [objects] in some features, for effects/abilities
 
 ### Fixed
 - LUA error sometimes in the end of scenario when NoRandom-Combats/Squad Mode Custom is enabled and no side is defined : (Saw Voyage of a drake > skip tutorial)

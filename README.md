@@ -72,7 +72,7 @@ Feel free to contribute !
 If you experiment a bug, please report it to me on the forum, then try to disable the feature (see next section).
 
 
-How To Enabled/Disable Mod Options During a Scenario/Campaign
+How To Enable/Disable Mod Options During a Scenario/Campaign
 -------------------------------
 
 The mod works when features options are changed during a game.
