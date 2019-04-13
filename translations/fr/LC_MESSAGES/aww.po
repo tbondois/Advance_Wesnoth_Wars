@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.wesnoth.org/\n"
 "POT-Creation-Date: 2019-04-12 22:12 UTC\n"
-"PO-Revision-Date: 2019-04-13 01:04+0200\n"
+"PO-Revision-Date: 2019-04-13 03:12+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -583,7 +583,7 @@ msgstr "WAAAHAAARRR!!"
 #. [case]
 #: Advance_Wesnoth_Wars\mods\12_tweak_berserk.cfg:74
 msgid "FORR ULFDAAAIN!!!"
-msgstr "POUR ULFDAAAIN!!!"
+msgstr "UULFDAAIIN!!!"
 
 #. [case]
 #: Advance_Wesnoth_Wars\mods\12_tweak_berserk.cfg:78
