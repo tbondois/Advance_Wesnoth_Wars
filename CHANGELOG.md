@@ -9,7 +9,7 @@ So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremente
 ### Changed
 - re-balanced Feature #12 (Berserk tweak) : no more initial offensive drains, base attacks damage don't increase on kills, but after 5 kills the fury attack gains also Bloodthirsty (offensive drains)
 - Feature #11, ninja : movement increase is used in [object] like the others changes,  don't include a 'stealthy' trait anymore.
-
+- improved aww_status.update_feature_07()  and update_feature_08()
 ### Fixed
 - Minor error on migrating version of a savegame
 
