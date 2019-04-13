@@ -25,7 +25,7 @@ Thanks
 -----------
 Some of theses features are inspired from existing code, saving me lot of times.
 A big thanks particularly to Eagle 11, Ravana, Bob_The_Mighty, for their creation.
-And a big thanks for all Wesnoth WML wiki contributors !
+And a huge thanks for all developers and Wesnoth WML wiki contributors !
 
 
 Description
@@ -87,7 +87,7 @@ When you disable an option, *MOST* of the changes made on units by the features 
 3) Copy/paste/execute one of the following lines related to mod features. 
     - Change the number in parentheses : 0 means disabled, 1 enabled.
     - When specified, you can replace it by another number. (like in feature 02, 04, 05, 08...)
-    - Most of the changes will be operationnal immediately, or next turn, or next scenario. But units already modified will keep theirs changes.
+    - Most of the changes will be operational immediately, or next turn, or next scenario. But units already modified will keep theirs changes.
 The commands to edit each feature and remove/re-enable changes on units :
 ```lua
 aww_status.update_feature_01(0) -- NoRandomCombats
