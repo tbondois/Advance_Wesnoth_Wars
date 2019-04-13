@@ -4,13 +4,13 @@ For more clarity about compatibility, first 2 version numbers will follow base g
 
 So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremented for new features ; Y is increment for fixes/optimisations.
 
-## [1.14.14.1] - 2018-04-13
+## [1.14.14.1] - 2019-04-13
 
 ### Changed
 - re-balanced Feature #12 (Berserk tweak) : no more initial offensive drains, base attacks damage don't increase on kills, but after 5 kills the fury attack gains also Bloodthirsty (offensive drains)
 - Feature #11, ninja : movement increase is used in [object] like the others changes,  don't include a 'stealthy' trait anymore.
 
-## [1.14.14.0] - 2018-04-13
+## [1.14.14.0] - 2019-04-13
 
 ### Added
 - Feature #15 : Level-Up After Max Level Advancement : Increase Level Number (default ON)
@@ -33,6 +33,7 @@ So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremente
 - gettext : textdomains wesnoth-aww and wesnoth-aww-rma merged in one "aww" (and scenario translation reworks)
 - macro files *.ma.cfg renamed *.mac.cfg
 - uses of [objects] in some features, for effects/abilities
+- Features #09 AMLA Random Bonuses : less probabiities to have moves +1
 
 ### Fixed
 - LUA error sometimes in the end of scenario when NoRandom-Combats/Squad Mode Custom is enabled and no side is defined : (Saw Voyage of a drake > skip tutorial)
@@ -41,7 +42,7 @@ So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremente
 ### Deleted
 - useless about.cfg
 
-## [1.14.13.0] - 2018-04-04
+## [1.14.13.0] - 2019-04-04
 
 ### Added
 - Ability 'distract' for "Gifted Leader". It's a Skirmisher leadership from data/campaigns/The_Rise_Of_Wesnoth/utils/trow-abilities.cfg
@@ -57,13 +58,13 @@ So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremente
 - Issue reported by Hammerfriz: Squad Mode Custom was not working sometimes (special set to cumulative=false)
 
 
-## [1.14.12.6] - 2018-03-31
+## [1.14.12.6] - 2019-03-31
 
 ### Changed
 - "10. Berserk tweak : Fury" becomes : "10. Berserk tweak : Fury & Drains & Drains"
 - "7. Epic heroes" : + leadership ability
 
-## [1.14.12.5] - 2018-03-31
+## [1.14.12.5] - 2019-03-31
 
 ### Added
 - Estimations of damages on each weapons (No Random Combats or Squad Mode except if Squad Mode : Swarm chosen)
@@ -80,12 +81,12 @@ So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremente
 - clear aww_bonus_rand variable after each use (optimisation) (09_amla_bonus)
 - lua errors on hit_chance calculation with marksmanshit units (No Random Combats)
 
-## [1.14.12.4] - 2018-03-30
+## [1.14.12.4] - 2019-03-30
 
 ### Fixed
 - fix on "Promoted Leaders" : take in account Heroes (to exclude them) not having hero ellipse but overlays icon.
 
-## [1.14.12.3] - 2018-03-29
+## [1.14.12.3] - 2019-03-29
 
 ### Changed
 - "Promoted Leaders" : Warning about using it in Campaigns. units who can recruits disapears in The_Rise_Of_Wesnoth : 15_A_New_Land
@@ -94,7 +95,7 @@ So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremente
 - retrocompatiblity if a player update from mod in the middle of a campaign
 - bug reported by Trossknecht : The_Rise_Of_Wesnoth heroes are not declared properly as Heroes, so I put them in exception list for feature "Promoted Leaders"
 
-## [1.14.12.2] - 2018-03-24
+## [1.14.12.2] - 2019-03-24
 
 ### Changed
 - French translations improvements
@@ -103,7 +104,7 @@ So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremente
 ### Fixed
 - Better retrocompatibilty for features "passive XP" and "healing XP"
 
-## [1.14.12.1] - 2018-03-24
+## [1.14.12.1] - 2019-03-24
 
 ### Added
 - Translations support
@@ -114,7 +115,7 @@ So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremente
 - Minors changes on scenario 4p_Ruvaak_Mirage_Atoll.cfg, passing it to v1.3
 - macro items.ma.cfg OBJ_TEMPEST_TRIDENT become AWW_OBJ_TEMPEST_TRIDENT with parameters for damages & strikes
 
-## [1.14.12.0] - 2018-03-24
+## [1.14.12.0] - 2019-03-24
 
 ### Added
 - Squad (swarm) alternative mode for (Health-based Hits number)
@@ -144,7 +145,7 @@ So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremente
 - Ninja mode : now poison only apply on pierce-ranged weapons not having charge/berserk
 - Some edit on scenario 4p_Ruvaak_Mirage_Atoll
 
-## [1.14.11.3] - 2018-03-17
+## [1.14.11.3] - 2019-03-17
 
 ### Changed
 - Refactoring/optimizations of all WML code
