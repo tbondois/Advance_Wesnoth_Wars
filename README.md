@@ -2,7 +2,7 @@ Advanced Wesnoth Wars
 =======================
 
 About
----------------
+-----------
 
 It's a mod  for "Battle for Wesnoth" open-source videogame.
 
@@ -22,14 +22,14 @@ But I will really appreciate to know my mod is re-used by someone, and that you 
 
 
 Thanks
----------------
+-----------
 Some of theses features are inspired from existing code, saving me lot of times.
 A big thanks particularly to Eagle 11, Ravana, Bob_The_Mighty, for their creation.
 And a big thanks for all Wesnoth WML wiki contributors !
 
 
 Description
-------------
+-----------
 
 Last Wesnoth version tested : 1.14.7
 
@@ -81,7 +81,8 @@ When you disable an option, *MOST* of the changes made on units by the features 
 1) During a game, type :
 ```
 :debug
-``` (except if you launched the game with --debug argument)
+``` 
+(except if you launched the game with --debug argument)
 2) Then open Lua Console(default : `, but you can see it in Menu > Settings > Shortcut > display lua console)
 3) Copy/paste/execute one of the following lines related to mod features. 
     - Change the number between parenthesis : 0 means disabled, 1 enabled.
@@ -143,3 +144,4 @@ aww.dev
 in the addon base directory (where the _main.cfg is).
 
 - To disable it, just remove the file, and restart the game.
+
