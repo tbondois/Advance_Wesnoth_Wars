@@ -72,8 +72,8 @@ Feel free to contribute !
 If you experiment a bug, please report it to me on the forum, then try to disable the feature (see next section).
 
 
-How To Enable/Disable Mod Options During a Scenario/Campaign
--------------------------------
+How To Enable/Disable Mod Options during a Scenario/Campaign
+-----------------------------------------------
 
 The mod works when features options are changed during a game.
 When you disable an option, *MOST* of the changes made on units by the features are removed. But it's experimental.
@@ -83,9 +83,9 @@ When you disable an option, *MOST* of the changes made on units by the features 
 :debug
 ``` 
 (except if you launched the game with --debug argument)
-2) Then open Lua Console(default : `, but you can see it in Menu > Settings > Shortcut > display lua console)
+2) Then open Lua Console(default : `, but you can see it in Menu > Settings > Shortcuts > Display lua console)
 3) Copy/paste/execute one of the following lines related to mod features. 
-    - Change the number between parenthesis : 0 means disabled, 1 enabled.
+    - Change the number in parentheses : 0 means disabled, 1 enabled.
     - When specified, you can replace it by another number. (like in feature 02, 04, 05, 08...)
     - Most of the changes will be operationnal immediately, or next turn, or next scenario. But units already modified will keep theirs changes.
 The commands to edit each feature and remove/re-enable changes on units :
