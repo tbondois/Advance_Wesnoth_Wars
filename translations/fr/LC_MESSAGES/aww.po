@@ -2,8 +2,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.wesnoth.org/\n"
-"POT-Creation-Date: 2019-04-12 22:12 UTC\n"
-"PO-Revision-Date: 2019-04-13 03:12+0200\n"
+"POT-Creation-Date: 2019-04-13 11:39 UTC\n"
+"PO-Revision-Date: 2019-04-13 13:43+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -20,11 +20,9 @@ msgstr "sans coups manqués"
 
 #. [lua]: aww_duel.special_damage_multiplier
 #. [case]
-#. [then]
 #: Advance_Wesnoth_Wars\lua\aww_duel.lua:297
 #: Advance_Wesnoth_Wars\mods\09_levelup_amla_bonus.cfg:39
 #: Advance_Wesnoth_Wars\mods\09_levelup_amla_bonus.cfg:52
-#: Advance_Wesnoth_Wars\mods\12_tweak_berserk.cfg:191
 msgid "damage"
 msgstr "dégâts"
 
@@ -130,7 +128,7 @@ msgid ""
 msgstr "Exclu pour les capacité berserk & fureur."
 
 #. [modification]: id=advance_wesnoth_wars, type=hybrid
-#: Advance_Wesnoth_Wars\lua\aww_status.lua:8 Advance_Wesnoth_Wars\_main.cfg:27
+#: Advance_Wesnoth_Wars\lua\aww_status.lua:8 Advance_Wesnoth_Wars\_main.cfg:25
 msgid "Advanced Wesnoth Wars"
 msgstr "Advanced Wesnoth Wars (FR)"
 
@@ -176,7 +174,7 @@ msgstr ""
 #. [lua]: aww_status.get_info
 #. [checkbox]: id=aww_15_enable_levelup_amla_inc, description=#15.
 #: Advance_Wesnoth_Wars\lua\aww_status.lua:143
-#: Advance_Wesnoth_Wars\mods\options.cfg:82
+#: Advance_Wesnoth_Wars\mods\options.cfg:74
 msgid "Increase Level Number"
 msgstr "Monter le Numéro de Niveau"
 
@@ -193,7 +191,7 @@ msgstr "Promus Leaders"
 #. [lua]: aww_status.get_info
 #. [checkbox]: id=aww_10_enable_gifted_leaders, description=#10.
 #: Advance_Wesnoth_Wars\lua\aww_status.lua:152
-#: Advance_Wesnoth_Wars\mods\options.cfg:106
+#: Advance_Wesnoth_Wars\mods\options.cfg:98
 msgid "Epic Heroes"
 msgstr "Héros Épiques"
 
@@ -231,7 +229,7 @@ msgstr "Tweak Embuscade"
 #. [lua]: aww_status.get_info
 #. [checkbox]: id=aww_11_enable_ninja, description=#11.
 #: Advance_Wesnoth_Wars\lua\aww_status.lua:174
-#: Advance_Wesnoth_Wars\mods\options.cfg:159
+#: Advance_Wesnoth_Wars\mods\options.cfg:150
 msgid "NINJA WARS!"
 msgstr "GUERRES NINJA!"
 
@@ -378,20 +376,48 @@ msgstr ""
 "L'unité annule la Zone de Contrôle autour d'elle pour les unités alliés "
 "(mais pas pour elle-même)"
 
-#. [damage]: id=aww_special_fury
+#. [drains]: id=aww_special_bloodthirsty
+#. [case]
 #: Advance_Wesnoth_Wars\macros\abilities.mac.cfg:217
+#: Advance_Wesnoth_Wars\mods\09_levelup_amla_bonus.cfg:204
+msgid "bloodthirsty"
+msgstr "soif de sang"
+
+#. [drains]: id=aww_special_bloodthirsty
+#: Advance_Wesnoth_Wars\macros\abilities.mac.cfg:218
+msgid "female^bloodthirsty"
+msgstr "soif de sang"
+
+#. [drains]: id=aww_special_bloodthirsty
+#: Advance_Wesnoth_Wars\macros\abilities.mac.cfg:220
+msgid "(Only available offensively)"
+msgstr "(Seulement accessible offensivement)"
+
+#. [drains]: id=aww_special_bloodthirsty
+#: Advance_Wesnoth_Wars\macros\abilities.mac.cfg:220
+msgid ""
+"This unit drains health from living units, healing itself for half the "
+"amount of damage it deals (rounded down)."
+msgstr ""
+"L'unité draine la vie des unités vivantes et se régénère de la moitié des "
+"dégâts causés (arrondis à l'inférieur)."
+
+#. [damage]: id=aww_special_fury
+#: Advance_Wesnoth_Wars\macros\abilities.mac.cfg:245
 msgid "fury"
 msgstr "fureur"
 
 #. [damage]: id=aww_special_fury
 #. [berserk]: id=berserk
-#: Advance_Wesnoth_Wars\macros\abilities.mac.cfg:218
-#: Advance_Wesnoth_Wars\macros\abilities.mac.cfg:254
+#: Advance_Wesnoth_Wars\macros\abilities.mac.cfg:246
+#: Advance_Wesnoth_Wars\macros\abilities.mac.cfg:267
 msgid "female^fury"
 msgstr "furie"
 
 #. [damage]: id=aww_special_fury
-#: Advance_Wesnoth_Wars\macros\abilities.mac.cfg:219
+#. [checkbox]: id=aww_12_enable_berserk_fix, description=#12.
+#: Advance_Wesnoth_Wars\macros\abilities.mac.cfg:247
+#: Advance_Wesnoth_Wars\mods\options.cfg:129
 msgid ""
 "When used offensively :\n"
 "- This attack deals more damage to the target.\n"
@@ -399,9 +425,9 @@ msgid ""
 "counterattack.\n"
 "- The damage ratio starts at 1.5, increases of 0.5 after each attack, until "
 "3, then drop to 1, and the loop restart.\n"
-"- If the attack kills, this attack gains a 1 extra damage per strike (max: "
-"10) until the end of the scenario\n"
-"- If the attack kills, the unit can attack an adjacent enemy.\n"
+"- Rampage : when the attack kills, the unit can attack an adjacent enemy.\n"
+"- After 5 kills with that attack, it gains Bloodthirsty, an offensive drain, "
+"until end of the scenario.\n"
 "- A warcry related to the fury level with also be displayed when the unit "
 "attack."
 msgstr ""
@@ -411,45 +437,20 @@ msgstr ""
 "attaques.\n"
 "   - Les dégâts commencent avec un ratio de 1,5, augmentent de 0,5 après "
 "chaque attaque, jusqu'à 3, et la boucle continue.\n"
-"   - si l'attaque tue, l'attaque gagne 1 dégât supplémentaire permanent par "
-"frappe (max: 10) jusqu'à la fin du scénario\n"
-"   - Si l'attaque tue, l'unité peut enchaîner sur un ennemi adjacent.\n"
+"   - Enchaînement : quand  l'attaque tue, l'unité peut enchaîner sur un "
+"ennemi adjacent.\n"
+"   - après 5 morts avec cette attaque, elle gagne 'soif de sang', un drain "
+"offensif, jusqu'à la fin du scénario.\n"
 "   - Un cri de guerre représentatif du niveau de furie sera aussi affiché "
 "quand l'unité attaque."
 
-#. [drains]: id=aww_special_bloodthirsty
-#. [case]
-#: Advance_Wesnoth_Wars\macros\abilities.mac.cfg:240
-#: Advance_Wesnoth_Wars\mods\09_levelup_amla_bonus.cfg:211
-msgid "bloodthirsty"
-msgstr "soif de sang"
-
-#. [drains]: id=aww_special_bloodthirsty
-#: Advance_Wesnoth_Wars\macros\abilities.mac.cfg:241
-msgid "female^bloodthirsty"
-msgstr "soif de sang"
-
-#. [drains]: id=aww_special_bloodthirsty
-#: Advance_Wesnoth_Wars\macros\abilities.mac.cfg:243
-msgid "(Only available offensively)"
-msgstr "(Seulement accessible offensivement)"
-
-#. [drains]: id=aww_special_bloodthirsty
-#: Advance_Wesnoth_Wars\macros\abilities.mac.cfg:243
-msgid ""
-"This unit drains health from living units, healing itself for half the "
-"amount of damage it deals (rounded down)."
-msgstr ""
-"L'unité draine la vie des unités vivantes et se régénère de la moitié des "
-"dégâts causés (arrondis à l'inférieur)."
-
 #. [berserk]: id=berserk
-#: Advance_Wesnoth_Wars\macros\abilities.mac.cfg:253
+#: Advance_Wesnoth_Wars\macros\abilities.mac.cfg:266
 msgid "berserk"
 msgstr "berserk"
 
 #. [berserk]: id=berserk
-#: Advance_Wesnoth_Wars\macros\abilities.mac.cfg:255
+#: Advance_Wesnoth_Wars\macros\abilities.mac.cfg:268
 msgid ""
 "When used offensively, this special effect presses the assault engagement "
 "for 1-4 rounds, or until one of the fighters is slain ; after that the "
@@ -582,7 +583,9 @@ msgstr "WAAAHAAARRR!!"
 
 #. [case]
 #: Advance_Wesnoth_Wars\mods\12_tweak_berserk.cfg:74
-msgid "FORR ULFDAAAIN!!!"
+#, fuzzy
+#| msgid "FORR ULFDAAAIN!!!"
+msgid "UULFDAAIIN!!!"
 msgstr "UULFDAAIIN!!!"
 
 #. [case]
@@ -591,9 +594,16 @@ msgid "THUUURSAGAAAN!!!!"
 msgstr "THUUURSAGAAAN!!!!"
 
 #. [then]
+#: Advance_Wesnoth_Wars\mods\12_tweak_berserk.cfg:174
+#, fuzzy
+#| msgid "bloodthirsty"
+msgid "Bloodthirsty"
+msgstr "soif de sang"
+
+#. [then]
 #. [else]
-#: Advance_Wesnoth_Wars\mods\12_tweak_berserk.cfg:191
-#: Advance_Wesnoth_Wars\mods\12_tweak_berserk.cfg:204
+#: Advance_Wesnoth_Wars\mods\12_tweak_berserk.cfg:174
+#: Advance_Wesnoth_Wars\mods\12_tweak_berserk.cfg:186
 msgid "Rampage!"
 msgstr "Enchaînement!"
 
@@ -622,7 +632,7 @@ msgstr "Surprise!"
 #. [checkbox]: id=aww_15_enable_levelup_amla_inc, description=#15.
 #: Advance_Wesnoth_Wars\mods\options.cfg:13
 #: Advance_Wesnoth_Wars\mods\options.cfg:36
-#: Advance_Wesnoth_Wars\mods\options.cfg:83
+#: Advance_Wesnoth_Wars\mods\options.cfg:75
 msgid " Default:"
 msgstr " Par défaut:"
 
@@ -633,11 +643,11 @@ msgstr " Par défaut:"
 #. [checkbox]: id=aww_09_enable_amla_bonus, description=#09.
 #. [checkbox]: id=aww_12_enable_berserk_fix, description=#12.
 #: Advance_Wesnoth_Wars\mods\options.cfg:13
+#: Advance_Wesnoth_Wars\mods\options.cfg:59
 #: Advance_Wesnoth_Wars\mods\options.cfg:67
 #: Advance_Wesnoth_Wars\mods\options.cfg:75
 #: Advance_Wesnoth_Wars\mods\options.cfg:83
-#: Advance_Wesnoth_Wars\mods\options.cfg:91
-#: Advance_Wesnoth_Wars\mods\options.cfg:144
+#: Advance_Wesnoth_Wars\mods\options.cfg:135
 msgid "ON"
 msgstr "ACTIF"
 
@@ -673,42 +683,27 @@ msgstr ""
 "mais natif, donc interprété par l'IA. Dans les deux cas : "
 
 #. [choice]: id=aww_02_squad_mode, description=#02.
-#. [checkbox]: id=aww_07_enable_verbose, description=#07.
 #. [checkbox]: id=aww_03_enable_promoted_leader, description=#03.
 #. [checkbox]: id=aww_10_enable_gifted_leaders, description=#10.
 #. [checkbox]: id=aww_13_enable_ambushed_fix, description=#13.
 #. [checkbox]: id=aww_11_enable_ninja, description=#11.
+#. [checkbox]: id=aww_07_enable_verbose, description=#07.
 #: Advance_Wesnoth_Wars\mods\options.cfg:36
-#: Advance_Wesnoth_Wars\mods\options.cfg:59
+#: Advance_Wesnoth_Wars\mods\options.cfg:91
 #: Advance_Wesnoth_Wars\mods\options.cfg:99
-#: Advance_Wesnoth_Wars\mods\options.cfg:107
-#: Advance_Wesnoth_Wars\mods\options.cfg:152
-#: Advance_Wesnoth_Wars\mods\options.cfg:160
+#: Advance_Wesnoth_Wars\mods\options.cfg:143
+#: Advance_Wesnoth_Wars\mods\options.cfg:151
+#: Advance_Wesnoth_Wars\mods\options.cfg:159
 msgid "Off"
 msgstr "Inactif"
 
-#. [checkbox]: id=aww_07_enable_verbose, description=#07.
-#: Advance_Wesnoth_Wars\mods\options.cfg:58
-msgid "Verbose (damage/hits calculation etc)"
-msgstr "Verbosité (calcul dommages / coups, etc)"
-
-#. [checkbox]: id=aww_07_enable_verbose, description=#07.
-#: Advance_Wesnoth_Wars\mods\options.cfg:59
-msgid ""
-"If features #01 or #02 are enabled, will display messages about damage/hits "
-"number calculations. Useful for tests or understanding."
-msgstr ""
-"Si les fonctions #01 ou #02 sont activées, des messages concernant le calcul "
-"du nombre de dégâts / impacts seront affichés. Utile pour les tests ou la "
-"compréhension."
-
 #. [checkbox]: id=aww_14_enable_levelup_notif, description=#14.
-#: Advance_Wesnoth_Wars\mods\options.cfg:66
+#: Advance_Wesnoth_Wars\mods\options.cfg:58
 msgid "Level-Up : Floating Notification"
 msgstr "Niveau Sup : Notification flottante"
 
 #. [checkbox]: id=aww_14_enable_levelup_notif, description=#14.
-#: Advance_Wesnoth_Wars\mods\options.cfg:67
+#: Advance_Wesnoth_Wars\mods\options.cfg:59
 msgid ""
 "Floating text on the unit currently leveling-up. Can be helpful to know "
 "which unit is concerned by an advancement. Will display only if no other AWW "
@@ -719,12 +714,12 @@ msgstr ""
 "AWW ne souhaite afficher quelque chose à ce moment."
 
 #. [checkbox]: id=aww_06_enable_levelup_relative_healing, description=#06.
-#: Advance_Wesnoth_Wars\mods\options.cfg:74
+#: Advance_Wesnoth_Wars\mods\options.cfg:66
 msgid "Level-Up : Relative Healing"
 msgstr "Niveau Sup : Soin Relatif"
 
 #. [checkbox]: id=aww_06_enable_levelup_relative_healing, description=#06.
-#: Advance_Wesnoth_Wars\mods\options.cfg:75
+#: Advance_Wesnoth_Wars\mods\options.cfg:67
 msgid ""
 "When an unit advances a level raising his Max HP, instead of a full healing "
 "and being cured, it keep the missing HP, but statuses are cured."
@@ -734,23 +729,23 @@ msgstr ""
 "les statuts sont guéris."
 
 #. [checkbox]: id=aww_15_enable_levelup_amla_inc, description=#15.
-#: Advance_Wesnoth_Wars\mods\options.cfg:82
+#: Advance_Wesnoth_Wars\mods\options.cfg:74
 msgid "Level-Up After Max Level Advancement : "
 msgstr "Niveau Sup Après Avancement Niveau Max : "
 
 #. [checkbox]: id=aww_15_enable_levelup_amla_inc, description=#15.
-#: Advance_Wesnoth_Wars\mods\options.cfg:83
+#: Advance_Wesnoth_Wars\mods\options.cfg:75
 msgid "The unit level will continue growing with the AMLA level-ups."
 msgstr ""
 "Le niveau de l'unité continuera d'augmenter après l'avancement maximum."
 
 #. [checkbox]: id=aww_09_enable_amla_bonus, description=#09.
-#: Advance_Wesnoth_Wars\mods\options.cfg:90
+#: Advance_Wesnoth_Wars\mods\options.cfg:82
 msgid "Level-Up After Max Level Advancement : Random Bonuses"
 msgstr "Niveau Sup Après Avancement Niveau Max : Bonus aléatoires"
 
 #. [checkbox]: id=aww_09_enable_amla_bonus, description=#09.
-#: Advance_Wesnoth_Wars\mods\options.cfg:91
+#: Advance_Wesnoth_Wars\mods\options.cfg:83
 msgid ""
 "Units reaching AMLA level-ups can gain an a random ability or increased stat "
 "each level."
@@ -760,12 +755,12 @@ msgstr ""
 "spéciale."
 
 #. [checkbox]: id=aww_03_enable_promoted_leader, description=#03.
-#: Advance_Wesnoth_Wars\mods\options.cfg:98
+#: Advance_Wesnoth_Wars\mods\options.cfg:90
 msgid "Level-Up After Max Level Advancement : Promoted Leaders"
 msgstr "Niveau Sup Après Avancement Niveau Max : Promus Leaders"
 
 #. [checkbox]: id=aww_03_enable_promoted_leader, description=#03.
-#: Advance_Wesnoth_Wars\mods\options.cfg:99
+#: Advance_Wesnoth_Wars\mods\options.cfg:91
 msgid ""
 "WARNING : Not Recommended for Campaigns, it can create bugs (like loose of "
 "unit or different recruit list). "
@@ -774,7 +769,7 @@ msgstr ""
 "perte de l'unité, différente liste de recrues). "
 
 #. [checkbox]: id=aww_03_enable_promoted_leader, description=#03.
-#: Advance_Wesnoth_Wars\mods\options.cfg:99
+#: Advance_Wesnoth_Wars\mods\options.cfg:91
 msgid ""
 "Post-level 3 standard units reaching their first AMLA level-up will be able "
 "to recruit the same units as the original leader, recall, and be prefixed "
@@ -788,7 +783,7 @@ msgstr ""
 "'Assimilation Mod' ou 'Spoils of War'."
 
 #. [checkbox]: id=aww_10_enable_gifted_leaders, description=#10.
-#: Advance_Wesnoth_Wars\mods\options.cfg:107
+#: Advance_Wesnoth_Wars\mods\options.cfg:99
 msgid ""
 "The Leaders and Heroes (gold & silver crowns) gain an increase of 20% of "
 "their attributes and some abilities like leadership and regeneration, making "
@@ -800,17 +795,17 @@ msgstr ""
 "pour les Leaders Promus."
 
 #. [slider]: id=aww_04_passive_xp, description=#04.
-#: Advance_Wesnoth_Wars\mods\options.cfg:117
+#: Advance_Wesnoth_Wars\mods\options.cfg:109
 msgid "Learning from the battlefield (Passive XP) :"
 msgstr "Apprentissage sur le terrain (XP passive) :"
 
 #. [slider]: id=aww_04_passive_xp, description=#04.
-#: Advance_Wesnoth_Wars\mods\options.cfg:118
+#: Advance_Wesnoth_Wars\mods\options.cfg:110
 msgid "Extra XP for all units each turn. Default: 0"
 msgstr "XP supplémentaire pour chaque unité à chaque tour. Par défaut: 0"
 
 #. [slider]: id=aww_05_healing_xp, description=#05.
-#: Advance_Wesnoth_Wars\mods\options.cfg:129
+#: Advance_Wesnoth_Wars\mods\options.cfg:121
 msgid ""
 "Each turn, Healers will earn 1 XP for each adjacent wounded (but not-"
 "poisoned) ally, but you can limit the max/turn. 0 will disable the feature. "
@@ -821,58 +816,34 @@ msgstr ""
 "désactivera la fonctionnalité. Par défaut: 1"
 
 #. [checkbox]: id=aww_12_enable_berserk_fix, description=#12.
-#: Advance_Wesnoth_Wars\mods\options.cfg:136
-msgid "Berserk tweak : Fury & Bloodthirsty"
+#: Advance_Wesnoth_Wars\mods\options.cfg:128
+msgid "Berserk tweak : Replace by Fury"
 msgstr "Modification Berserk : Fureur & Soif de Sang"
 
 #. [checkbox]: id=aww_12_enable_berserk_fix, description=#12.
-#: Advance_Wesnoth_Wars\mods\options.cfg:137
+#: Advance_Wesnoth_Wars\mods\options.cfg:129
+#, fuzzy
+#| msgid ""
+#| "Replace 'berserk' by a new 'Fury' weapon special, way more interesting. "
+#| "Come also with 'Bloodthirsty', an offensive drain."
 msgid ""
-"Replace 'berserk' by a new 'Fury' weapon special, way more interesting. Come "
-"also with 'Bloodthirsty', an offensive drain."
+"Replace 'berserk' by a new 'Fury' weapon special, way more interesting. "
 msgstr ""
 "Remplace 'berserk' par une nouvelle capacité spéciale 'fureur', bien plus "
 "intéressante. Viens aussi avec 'Soif de Sang', un drain offensif."
 
 #. [checkbox]: id=aww_12_enable_berserk_fix, description=#12.
-#: Advance_Wesnoth_Wars\mods\options.cfg:137
+#: Advance_Wesnoth_Wars\mods\options.cfg:129
 msgid " Fury description : "
 msgstr " À propos de Fureur : "
 
-#. [checkbox]: id=aww_12_enable_berserk_fix, description=#12.
-#: Advance_Wesnoth_Wars\mods\options.cfg:138
-msgid ""
-"When used offensively :\n"
-"- This attack deals more damage to the target.\n"
-"- It also causes this unit to take more damage from the target’s "
-"counterattack.\n"
-"- The damage ratio starts at 1.5, increases of 0.5 after each attack, until "
-"3, then drop to 1, and the loop restart.\n"
-"- If the attack kills, this attack gains a 1 extra damage per strike (max: "
-"10) until the end of the scenario.\n"
-"- If the attack kills, the unit can attack an adjacent enemy.\n"
-"- A warcry related to the fury level will also be displayed when the unit "
-"attack."
-msgstr ""
-"Lorsqu'utilisé en offensive :\n"
-"   - Cette attaque inflige + de dégâts à la cible.\n"
-"   - L'unité recevra en contrepartie des dégâts supplémentaires de contre-"
-"attaques.\n"
-"   - Les dégâts commencent avec un ratio de 1,5, augmentent de 0,5 après "
-"chaque attaque, jusqu'à 3, et la boucle continue.\n"
-"   - si l'attaque tue, l'attaque gagne 1 dégât supplémentaire permanent par "
-"frappe (max: 10) jusqu'à la fin du scénario\n"
-"   - Si l'attaque tue, l'unité peut enchaîner sur un ennemi adjacent.\n"
-"   - Un cri de guerre représentatif du niveau de furie sera aussi affiché "
-"quand l'unité attaque."
-
 #. [checkbox]: id=aww_13_enable_ambushed_fix, description=#13.
-#: Advance_Wesnoth_Wars\mods\options.cfg:151
+#: Advance_Wesnoth_Wars\mods\options.cfg:142
 msgid "Ambush tweak : Surprise Attacks"
 msgstr "Modification Embuscades : Attaques Surprises"
 
 #. [checkbox]: id=aww_13_enable_ambushed_fix, description=#13.
-#: Advance_Wesnoth_Wars\mods\options.cfg:152
+#: Advance_Wesnoth_Wars\mods\options.cfg:143
 msgid ""
 "An ambush will trigger a quick combat in which the ambushed unit can't "
 "counter-attack. Next turn, the ambusher will not be able to hide neither "
@@ -884,12 +855,12 @@ msgstr ""
 "bien avec GUERRES NINJA!."
 
 #. [checkbox]: id=aww_11_enable_ninja, description=#11.
-#: Advance_Wesnoth_Wars\mods\options.cfg:159
+#: Advance_Wesnoth_Wars\mods\options.cfg:150
 msgid " (stealthy units)"
 msgstr " (unités furtives)"
 
 #. [checkbox]: id=aww_11_enable_ninja, description=#11.
-#: Advance_Wesnoth_Wars\mods\options.cfg:160
+#: Advance_Wesnoth_Wars\mods\options.cfg:151
 msgid ""
 "Most of units will melee back-stabs, poison arrows, distract from ZoC, be "
 "faster and invisible in villages, forests, deep water, or everywhere at "
@@ -900,6 +871,21 @@ msgstr ""
 "invisibles dans les villages, les forêts, dans les eaux profondes ou partout "
 "la nuit. Pour des PvP amusants avec brouillard de guerre axés sur des "
 "embuscades / cache-cache."
+
+#. [checkbox]: id=aww_07_enable_verbose, description=#07.
+#: Advance_Wesnoth_Wars\mods\options.cfg:158
+msgid "Verbose (damage/hits calculation etc)"
+msgstr "Verbosité (calcul dommages / coups, etc)"
+
+#. [checkbox]: id=aww_07_enable_verbose, description=#07.
+#: Advance_Wesnoth_Wars\mods\options.cfg:159
+msgid ""
+"If features #01 or #02 are enabled, will display messages about damage/hits "
+"number calculations. Useful for tests or understanding."
+msgstr ""
+"Si les fonctions #01 ou #02 sont activées, des messages concernant le calcul "
+"du nombre de dégâts / impacts seront affichés. Utile pour les tests ou la "
+"compréhension."
 
 #. [multiplayer]: id=4p_Ruvaak_Mirage_Atoll
 #: Advance_Wesnoth_Wars\scenarios\4p_Ruvaak_Mirage_Atoll.cfg:12
@@ -1030,13 +1016,38 @@ msgid "Best friend!"
 msgstr "Meilleur ami!"
 
 #. [modification]: id=advance_wesnoth_wars, type=hybrid
-#: Advance_Wesnoth_Wars\_main.cfg:30
+#: Advance_Wesnoth_Wars\_main.cfg:28
 msgid ""
 "Configurable mods to change the game mechanics, for an approach more "
 "realistic and tactic"
 msgstr ""
 "Mods configurables pour changer les mécanismes du jeu, pour une approche "
 "plus réaliste et tactique"
+
+#~ msgid ""
+#~ "When used offensively :\n"
+#~ "- This attack deals more damage to the target.\n"
+#~ "- It also causes this unit to take more damage from the target’s "
+#~ "counterattack.\n"
+#~ "- The damage ratio starts at 1.5, increases of 0.5 after each attack, "
+#~ "until 3, then drop to 1, and the loop restart.\n"
+#~ "- If the attack kills, this attack gains a 1 extra damage per strike "
+#~ "(max: 10) until the end of the scenario.\n"
+#~ "- If the attack kills, the unit can attack an adjacent enemy.\n"
+#~ "- A warcry related to the fury level will also be displayed when the unit "
+#~ "attack."
+#~ msgstr ""
+#~ "Lorsqu'utilisé en offensive :\n"
+#~ "   - Cette attaque inflige + de dégâts à la cible.\n"
+#~ "   - L'unité recevra en contrepartie des dégâts supplémentaires de contre-"
+#~ "attaques.\n"
+#~ "   - Les dégâts commencent avec un ratio de 1,5, augmentent de 0,5 après "
+#~ "chaque attaque, jusqu'à 3, et la boucle continue.\n"
+#~ "   - si l'attaque tue, l'attaque gagne 1 dégât supplémentaire permanent "
+#~ "par frappe (max: 10) jusqu'à la fin du scénario\n"
+#~ "   - Si l'attaque tue, l'unité peut enchaîner sur un ennemi adjacent.\n"
+#~ "   - Un cri de guerre représentatif du niveau de furie sera aussi affiché "
+#~ "quand l'unité attaque."
 
 #~ msgid "Surprise Attack!"
 #~ msgstr "Attaque surprise!"

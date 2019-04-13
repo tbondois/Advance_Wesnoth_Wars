@@ -4,6 +4,12 @@ For more clarity about compatibility, first 2 version numbers will follow base g
 
 So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremented for new features ; Y is increment for fixes/optimisations.
 
+## [1.14.14.1] - 2018-04-13
+
+### Changed
+- re-balanced Feature #12 (Berserk tweak) : no more initial offensive drains, base attacks damage don't increase on kills, but after 5 kills the fury attack gains also Bloodthirsty (offensive drains)
+- Feature #11, ninja : movement increase is used in [object] like the others changes, not using a trait anymore.
+
 ## [1.14.14.0] - 2018-04-13
 
 ### Added

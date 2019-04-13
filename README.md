@@ -58,7 +58,7 @@ Features (each one can be combined, enabled or disabled individually. Some of th
 
 - Learning from healing (Max XP/turn for Healing) : Each turn, Healers will earn 1 XP for each adjacent wounded (but not-poisoned) ally, but you can limit the max/turn.
 
-- *Updated* Berserk tweak - Fury + Drain : Replace 'berserk' by a new 'Fury' weapon special, way more interesting. Come also with 'Bloodthirsty', an offensive drain. A warcry related to the fury level with also be displayed.
+- *Updated* Berserk tweak - Fury : Replace 'berserk' by a new 'Fury' weapon special, way more interesting. A warcry related to the fury level with also be displayed.
 
 - *Updated* Ambushed tweak - Surprise Attacks : An ambush will trigger a quick combat in which the ambushed unit can't counter-attack. Awesome combined with NINJA WARS!
 
