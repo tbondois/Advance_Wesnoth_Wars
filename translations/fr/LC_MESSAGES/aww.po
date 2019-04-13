@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.wesnoth.org/\n"
 "POT-Creation-Date: 2019-04-13 11:39 UTC\n"
-"PO-Revision-Date: 2019-04-13 13:43+0200\n"
+"PO-Revision-Date: 2019-04-13 13:52+0200\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "Language: fr\n"
@@ -583,8 +583,6 @@ msgstr "WAAAHAAARRR!!"
 
 #. [case]
 #: Advance_Wesnoth_Wars\mods\12_tweak_berserk.cfg:74
-#, fuzzy
-#| msgid "FORR ULFDAAAIN!!!"
 msgid "UULFDAAIIN!!!"
 msgstr "UULFDAAIIN!!!"
 
@@ -595,10 +593,8 @@ msgstr "THUUURSAGAAAN!!!!"
 
 #. [then]
 #: Advance_Wesnoth_Wars\mods\12_tweak_berserk.cfg:174
-#, fuzzy
-#| msgid "bloodthirsty"
 msgid "Bloodthirsty"
-msgstr "soif de sang"
+msgstr "Soif de sang"
 
 #. [then]
 #. [else]
@@ -818,19 +814,15 @@ msgstr ""
 #. [checkbox]: id=aww_12_enable_berserk_fix, description=#12.
 #: Advance_Wesnoth_Wars\mods\options.cfg:128
 msgid "Berserk tweak : Replace by Fury"
-msgstr "Modification Berserk : Fureur & Soif de Sang"
+msgstr "Modification Berserk : Remplacer par Fureur"
 
 #. [checkbox]: id=aww_12_enable_berserk_fix, description=#12.
 #: Advance_Wesnoth_Wars\mods\options.cfg:129
-#, fuzzy
-#| msgid ""
-#| "Replace 'berserk' by a new 'Fury' weapon special, way more interesting. "
-#| "Come also with 'Bloodthirsty', an offensive drain."
 msgid ""
 "Replace 'berserk' by a new 'Fury' weapon special, way more interesting. "
 msgstr ""
 "Remplace 'berserk' par une nouvelle capacité spéciale 'fureur', bien plus "
-"intéressante. Viens aussi avec 'Soif de Sang', un drain offensif."
+"intéressante. "
 
 #. [checkbox]: id=aww_12_enable_berserk_fix, description=#12.
 #: Advance_Wesnoth_Wars\mods\options.cfg:129
