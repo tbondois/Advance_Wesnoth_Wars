@@ -105,7 +105,7 @@ aww_status.update_feature_12(0) -- Berserk tweak
 aww_status.update_feature_13(0) -- Ambush tweak
 aww_status.update_feature_14(0) -- L-Up Notif
 aww_status.update_feature_15(0) -- L-Up AMLA number
-
+```
 If you want to display all currently enabled features (and the associated number), copy/paste/execute this line the lua console :
 ```lua
 aww_status.message_info_all()
