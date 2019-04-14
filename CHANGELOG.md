@@ -12,6 +12,7 @@ So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremente
 ### Changed
 - Feature #11, ninja, #10 Epic : found a way to enable / remove trait
 - re-enabled "stealthy" trait (renamed "ninja") for Feature #11
+- Feature #06 : Level-Up : Relative Healing disabled by default, as it can break balance of campaigns.
 
 ### Fixed
 - Minor error on migrating version of a savegame

@@ -145,11 +145,11 @@ function aww_status.get_info(filter_id)
 				..  label
 				.. "] | "
 	end
-	if (filter_id == nil or filter_id == 14) and aww_status.feature_14 then
-		msg = msg .. "14. ".. _"L-Up ".._"Notif" .. " | "
-	end
 	if (filter_id == nil or filter_id == 6) and aww_status.feature_06 then
 		msg = msg .. "06. ".. _"L-Up ".. _"Relative Heal" .. " | "
+	end
+	if (filter_id == nil or filter_id == 14) and aww_status.feature_14 then
+		msg = msg .. "14. ".. _"L-Up ".._"Notif" .. " | "
 	end
 	if (filter_id == nil or filter_id == 15) and aww_status.feature_15 then
 		msg = msg .. "15. L-Up ".._"AMLA".." ".. _"Increase Level Number" .. " | "
