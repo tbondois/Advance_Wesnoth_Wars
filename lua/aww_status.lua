@@ -151,7 +151,7 @@ function aww_status.get_info(filter_id)
 	if (filter_id == nil or filter_id == 10) and aww_status.feature_10 then
 		msg = msg .. "10. ".. _"Epic Heroes" .. " | "
 	end
-	if (filter_id == nil or filter_id == 5) and aww_status.feature_04 and aww_status.feature_04 ~= 0 then
+	if (filter_id == nil or filter_id == 4) and aww_status.feature_04 and aww_status.feature_04 ~= 0 then
 		msg = msg .. "04. ".. _"Passive XP"
 		 .. string.format(" [%s", aww_status.feature_04 )
 		.. _"/turn]"

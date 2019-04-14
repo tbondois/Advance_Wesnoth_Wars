@@ -14,6 +14,7 @@ So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremente
 
 ### Fixed
 - Minor error on migrating version of a savegame
+- Bad display information for Passive XP on chat message.
 
 ## [1.14.14.0] - 2019-04-13 (BfW 1.14.7 released)
 
