@@ -79,7 +79,7 @@ When you disable an option, *MOST* of the changes made on units by the features 
 (except if you launched the game with --debug argument)
 2) Then open Lua Console(default : `, but you can see it in Menu > Settings > Shortcuts > Display lua console)
 3) Copy/paste/execute one of the following lines related to mod features. 
-    - Change the number in parentheses : 0 means disabled, 1 enabled.
+    - Change the number in parentheses : 0 (zero) means disabled, 1 enabled.
     - When specified, you can replace it by another number. (like in feature 02, 04, 05, 08...)
     - Most of the changes will be operational immediately, or next turn, or next scenario. But units already modified will keep theirs changes.
 The commands to edit each feature and remove/re-enable changes on units :

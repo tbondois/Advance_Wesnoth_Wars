@@ -387,8 +387,8 @@ function aww_duel.calculate_randomless_damage_ratio(weapon_hit_chance)
 	local result = (math.min(100, weapon_hit_chance) + adj) / 100
 
 	 aww_duel.debug_message_side(string.format("(No-Random) Damage ratio = %s  |  (hit ratio) %s%%+%s%%", result, weapon_hit_chance, aww_status.feature_08))
-	-- will return between 20% and 200 %
-	return math.max(0.2, math.min(2, result))
+	-- will return between 10% and 100 of damage :
+	return math.max(.2, math.min(1, result))
 end
 
 
@@ -442,6 +442,7 @@ function aww_duel.get_new_damage_ratio(weapon_damage, weapon_hit_chance, weapon_
 
 	if aww_status.feature_02 >= 1 and weapon_strikes == 1 and hp_ratio < 1  then
 		if aww_status.feature_01 then
+			-- both feature combined can make the units hitting single strikes making too low damage when hurt, so we lift up by 30% (max 1) :
 			local hp_ratio_boosted = math.min(1, .3 + hp_ratio)
 			damage_ratio =  damage_ratio * hp_ratio_boosted
 			aww_duel.debug_message_side(string.format("hp_ratio_boosted to %s because NoRandom + SquadMode, hp_ratio was %s", hp_ratio_boosted, hp_ratio))
@@ -454,7 +455,7 @@ function aww_duel.get_new_damage_ratio(weapon_damage, weapon_hit_chance, weapon_
 
 	-- to make base min damage 1 :
 	local min_ratio = 1 / math.max(1, weapon_damage)
-
+	-- we add 0.01 to avoid the rounding down by the game, and max ratio 1 :
 	local result = math.min(1, .01 + math.max(min_ratio, damage_ratio))
 	aww_duel.debug_message_side(string.format("new damage ratio : %s | calc ratio %s , min %s, weapon_damage %s, hit chance %s, strikes %s, hp_ratio %s", result, damage_ratio, min_ratio, weapon_damage, weapon_hit_chance, weapon_strikes, hp_ratio))
 	return result
@@ -473,6 +474,7 @@ function aww_duel.get_new_strikes_ratio(weapon_strikes, hp_ratio, ignore_strike_
 	-- to make base min 1 :
 	local min_ratio = 1 / math.max(1, weapon_strikes)
 
+	-- we add 0.01 to avoid the rounding down by the game, and max ratio 1 :
 	local result = math.min(1, .01 + math.max(min_ratio, strikes_ratio))
 	aww_duel.debug_message_side(string.format("new strikes ratio : %s | (strikes %s x hp %s = %s), min %s, before min %s, ignored strikes =%s", result, weapon_strikes, hp_ratio, estim_strikes_number, min_ratio, strikes_ratio, ignore_strike_edit))
 	return result
