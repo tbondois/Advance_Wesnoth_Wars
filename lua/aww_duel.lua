@@ -384,11 +384,13 @@ end
 function aww_duel.calculate_randomless_damage_ratio(weapon_hit_chance)
 
 	local adj = aww_status.feature_08 or 0
+	-- max hit chance at 100%, in case another mode interfere :
+	weapon_hit_chance = math.max(1, weapon_hit_chance)
 	local result = (math.min(100, weapon_hit_chance) + adj) / 100
 
 	 aww_duel.debug_message_side(string.format("(No-Random) Damage ratio = %s  |  (hit ratio) %s%%+%s%%", result, weapon_hit_chance, aww_status.feature_08))
-	-- will return between 10% and 100 of damage :
-	return math.max(.2, math.min(1, result))
+	-- will return between 10% and 200% (from extra adj) :
+	return math.max(.2, math.min(2, result))
 end
 
 
