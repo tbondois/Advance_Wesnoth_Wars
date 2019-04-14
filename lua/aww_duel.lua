@@ -402,7 +402,7 @@ function aww_duel.calculate_hp_ratio(hp, max_hp)
 	local result = hp / max_hp
 
 	-- result between 0.X (to do a minimum of damage) and 1 (in case of over-HP), no rounding :
-	result = math.min(1, math.max(0.2, result))
+	result = math.min(1, math.max(.2, result))
 
 	-- aww_duel.debug_message_side(string.format("Health-based) Calculated health ratio = %s | %d / %d", result, hp, max_hp))
 
