@@ -6,13 +6,17 @@ So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremente
 
 ## [1.14.14.2] - 2019-04-14
 
+### Added
+- Feature #12 Berserk Tweak : dwarf laugh when a fury-wearer unit kill someone.
+
 ### Changed
-- Feature #11, ninja, #10 Epic : find a way to enable / remove trait
+- Feature #11, ninja, #10 Epic : found a way to enable / remove trait
 - re-enabled "stealthy" trait (renamed "ninja") for Feature #11
 
 ### Fixed
 - Minor error on migrating version of a savegame
 - Bad display information for Passive XP on chat message.
+- Bloodthirsty was added after first kill instead of 5th on feature #12 Berserk tweak
 
 ## [1.14.14.1] - 2019-04-13
 

@@ -4,12 +4,17 @@
 
 local _ = wesnoth.textdomain 'aww'
 
+
+-- CUSTOM WML TAGS :
+
+-- used in mods/10_gifted_leader_hero.cfg, mods/11_ninja.cfg
 function wesnoth.wml_actions.aww_remove_trait(cfg)
 	local trait_id = cfg.trait_id
 	for _,unit in ipairs(wesnoth.get_units(cfg)) do
 		wesnoth.remove_modifications(unit, {id = trait_id}, "trait")
 	end
 end
+
 
 aww_status = {
 	title = _"Advanced Wesnoth Wars",

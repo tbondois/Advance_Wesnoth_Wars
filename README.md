@@ -21,12 +21,6 @@ You can reuse the code of this mod in your own creations, without asking my auth
 But I will really appreciate to know my code is used on your project, and that you credit my work somewhere in your code.
 
 
-Thanks
------------
-Some of theses features are inspired from existing code, saving me lot of times.
-A big thanks particularly to Eagle 11, Ravana, Bob_The_Mighty, for their creation.
-And a huge thanks for all developers and Wesnoth WML wiki contributors !
-
 
 Description
 -----------
@@ -134,9 +128,7 @@ Developer Mode
 This is useful only for development/test purpose on the addon lua scripts. 
 
 - Do not do that play a big campaign, as it can create issue with your savegame when you update the addon.
-
 - Effect : the LUA scripts will be loaded externally (means you can edit them, and the effect will apply when you reload a savegame, no need to re-create a game or a scenario like for WML scripts).
-
 - To enable it, just place a empty file named :
 ```
 aww.dev
@@ -145,3 +137,9 @@ in the addon base directory (where the _main.cfg is).
 
 - To disable it, just remove the file, and restart the game.
 
+
+Thanks
+-----------
+Some of theses features are inspired from existing code, saving me lot of times.
+A big thanks particularly to Eagle 11, Ravana, Bob_The_Mighty, for their creation.
+And a huge thanks for all developers and Wesnoth WML wiki contributors !
