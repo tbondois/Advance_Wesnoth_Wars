@@ -4,6 +4,16 @@ For more clarity about compatibility, first 2 version numbers will follow base g
 
 So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremented for new features ; Y is increment for fixes/optimisations.
 
+## [1.14.14.2] - 2019-04-14
+
+### Changed
+- Feature #11, ninja, #10 Epic : find a way to enable / remove trait
+- re-enabled "stealthy" trait (renamed "ninja") for Feature #11
+
+### Fixed
+- Minor error on migrating version of a savegame
+- Bad display information for Passive XP on chat message.
+
 ## [1.14.14.1] - 2019-04-13
 
 ### Changed

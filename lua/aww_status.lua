@@ -4,9 +4,16 @@
 
 local _ = wesnoth.textdomain 'aww'
 
+function wesnoth.wml_actions.aww_remove_trait(cfg)
+	local trait_id = cfg.trait_id
+	for _,unit in ipairs(wesnoth.get_units(cfg)) do
+		wesnoth.remove_modifications(unit, {id = trait_id}, "trait")
+	end
+end
+
 aww_status = {
 	title = _"Advanced Wesnoth Wars",
-	version = "1.14.14.1",
+	version = "1.14.14.2",
 	FEATURE_IDS = {
 		[1]  = "aww_01_enable_randomless_combats",
 		[2]  = "aww_02_squad_mode",
@@ -38,7 +45,7 @@ function aww_status.init()
 	aww_status.feature_01 = aww_status.get_feature_value(1, false)
 	aww_status.feature_02 = aww_status.get_feature_value(2, 0)
 	aww_status.feature_03 = aww_status.get_feature_value(3, false)
-	aww_status.feature_04 = aww_status.get_feature_value(5, 0)
+	aww_status.feature_04 = aww_status.get_feature_value(4, 0)
 	aww_status.feature_05 = aww_status.get_feature_value(5, 0)
 	aww_status.feature_06 = aww_status.get_feature_value(6, false)
 	aww_status.feature_07 = aww_status.get_feature_value(7, false)

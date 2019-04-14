@@ -1,5 +1,5 @@
 # see wiki.wesnoth.org/IGNFileFormat
-doc/
+dev/
 *.pot
 *.po
 
