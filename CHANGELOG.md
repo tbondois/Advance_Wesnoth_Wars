@@ -8,6 +8,8 @@ So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremente
 
 ### Fixed
 - Bug reported by Hammerfritz where hit chance was put in 100% in the case "No Random Combats" was disabled, but "Squad Mode" was.
+- Bug on "#08 : damage adjustement" not always taken in account
+- Bug aww_status.migrate() was always executed.
 
 ## [1.14.14.2] - 2019-04-14
 

@@ -67,7 +67,7 @@ end
 
 function aww_status.versioning()
 	local prev_version = wesnoth.get_variable("aww_version")
-	if prev_version == nil or prev_version ~= aww_status.version then
+	if prev_version ~= nil and prev_version ~= aww_status.version then
 		aww_status.migrate(prev_version)
 	end
 	wesnoth.set_variable("aww_version", aww_status.version)
@@ -115,10 +115,8 @@ function aww_status.migrate(from_version)
 		aww_status.update_feature_11(wesnoth.get_variable("aww_enable_stealth_mode"))
 	end
 
-	if from_version ~= nil then
-		wesnoth.message("AWW notice", "migrating from version ".. wesnoth.get_variable("aww_version") .. " to ".. aww_status.version)
-		wesnoth.set_variable("aww_migrated_version", from_version)
-	end
+	wesnoth.message("AWW notice", string.format("migrating from version %s to %s", wesnoth.get_variable("aww_version"), aww_status.version))
+	wesnoth.set_variable("aww_migrated_version", from_version)
 end
 
 
