@@ -4,6 +4,11 @@ For more clarity about compatibility, first 2 version numbers will follow base g
 
 So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremented for new features ; Y is increment for fixes/optimisations.
 
+## [1.14.14.3] - 2019-04-16
+
+### Fixed
+- Bug reported by Hammerfritz where hit chance was put in 100% in the case "No Random Combats" was disabled, but "Squad Mode" was.
+
 ## [1.14.14.2] - 2019-04-14
 
 ### Added

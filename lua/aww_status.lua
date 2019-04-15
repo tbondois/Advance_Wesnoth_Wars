@@ -18,7 +18,7 @@ end
 
 aww_status = {
 	title = _"Advanced Wesnoth Wars",
-	version = "1.14.14.2",
+	version = "1.14.14.3",
 	FEATURE_IDS = {
 		[1]  = "aww_01_enable_randomless_combats",
 		[2]  = "aww_02_squad_mode",

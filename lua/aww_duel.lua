@@ -187,15 +187,17 @@ function aww_duel.modify_unit_specials(att_unit, def_unit)
 				end -- if specials
 			end -- foreach wa (weapon attribute)
 
-			if not has_specials then
-				 aww_duel.debug_message_side("- Specials attacks : LINE CREATION")
-				table.insert(unit_data[a][2], { "specials", { aww_duel.special_chance_to_hit_100() }})
-			else
-				table.insert(unit_data[a][2][specials_index][2], aww_duel.special_chance_to_hit_100())
+
+			if aww_status.feature_01 then
+				if not has_specials then
+					aww_duel.debug_message_side("- Specials attacks : LINE CREATION")
+					table.insert(unit_data[a][2], { "specials", { aww_duel.special_chance_to_hit_100() }})
+				else
+					table.insert(unit_data[a][2][specials_index][2], aww_duel.special_chance_to_hit_100())
+				end
 			end
 
 			local damage_ratio   = aww_duel.get_new_damage_ratio(weapon_base_damage, weapon_hit_chance, weapon_strikes, att_hp_ratio)
-			--local edited_strikes = aww_duel.get_new_strikes_number(weapon_strikes, att_hp_ratio, ignore_strike_edit)
 			local strikes_ratio  = aww_duel.get_new_strikes_ratio(weapon_strikes, att_hp_ratio, ignore_strike_edit)
 
 			if damage_ratio ~= 1  then
@@ -600,19 +602,21 @@ function aww_duel.estimate_weapons_special(unit)
 
 			local new_special_estim_data = aww_duel.special_estimation_dummy(estim_damage, estim_strikes, special_hit_chance, hp, max_hp)
 
-			if current_weapon_stat ~= new_special_estim_data[2].name then
-				unit_to_update = true
-				--aww_duel.debug_message("to update !")
-				--aww_duel.debug_message(current_weapon_stat)
-				--aww_duel.debug_message(new_special[2].name)
-				if special_index_estim ~= nil then
-					-- update special :
-					unit_data[a][2][specials_index][2][special_index_estim] = new_special_estim_data
-					--aww_duel.debug_message("special_index_squad_mode =")
-					--aww_duel.debug_message(special_index_squad_mode)
-				else
-					-- insert special :
-					table.insert(unit_data[a][2][specials_index][2], new_special_estim_data)
+			if aww_status.feature_01 (aww_status.feature_02 >= 1 and special_strikes <= 1) then
+				if current_weapon_stat ~= new_special_estim_data[2].name then
+					unit_to_update = true
+					--aww_duel.debug_message("to update !")
+					--aww_duel.debug_message(current_weapon_stat)
+					--aww_duel.debug_message(new_special[2].name)
+					if special_index_estim ~= nil then
+						-- update special :
+						unit_data[a][2][specials_index][2][special_index_estim] = new_special_estim_data
+						--aww_duel.debug_message("special_index_squad_mode =")
+						--aww_duel.debug_message(special_index_squad_mode)
+					else
+						-- insert special :
+						table.insert(unit_data[a][2][specials_index][2], new_special_estim_data)
+					end
 				end
 			end
 
