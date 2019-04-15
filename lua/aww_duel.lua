@@ -602,7 +602,7 @@ function aww_duel.estimate_weapons_special(unit)
 
 			local new_special_estim_data = aww_duel.special_estimation_dummy(estim_damage, estim_strikes, special_hit_chance, hp, max_hp)
 
-			if aww_status.feature_01 (aww_status.feature_02 >= 1 and special_strikes <= 1) then
+			if aww_status.feature_01 or aww_status.feature_02 == 1 or (aww_status.feature_02 == 2 and special_strikes ==1) then
 				if current_weapon_stat ~= new_special_estim_data[2].name then
 					unit_to_update = true
 					--aww_duel.debug_message("to update !")
