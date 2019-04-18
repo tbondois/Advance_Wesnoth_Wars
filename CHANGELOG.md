@@ -4,6 +4,12 @@ For more clarity about compatibility, first 2 version numbers will follow base g
 
 So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremented for new features ; Y is increment for fixes/optimisations.
 
+## [1.14.14.4] - WIP
+
+### Changed
+- Optimised disabling of Feature #12 Berserk Tweak
+- Some float text colors
+
 ## [1.14.14.3] - 2019-04-16
 
 ### Fixed

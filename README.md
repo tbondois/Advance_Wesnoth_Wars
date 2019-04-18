@@ -32,7 +32,9 @@ It changes the combat approach, making it easier for good tacticians, harder for
 All theses features works for mainline Campaigns & Scenarios, Single or Multiplayer, for all sides (including AI)
 It also includes some options to give interest to level-up units after max advancement.
 
-Features (each one can be combined, enabled or disabled individually. Some of them are disabled by default) :
+The features which keep the Campaigns balanced are enabled by default. The others features are more aimed for PvP multiplayer, or being played on campaign in a lesser difficulty.
+
+Features list :
 
 - No Random Combats : attacks never miss, terrain bonus is instead used as damage reducer.
 
@@ -90,7 +92,7 @@ aww_status.update_feature_03(0) -- L-Up AMLA Promoted Leader
 aww_status.update_feature_04(0) -- passive xp, 0 to 6
 aww_status.update_feature_05(0) -- healing xp 0 to 6
 aww_status.update_feature_06(0) -- L-Up  relative healing
-aww_status.update_feature_07(0) -- verbose
+aww_status.update_feature_07(0) -- verbose debug messages
 aww_status.update_feature_08(0) -- NoRandomCombats Damages Adjustment, to -20 to 40
 aww_status.update_feature_09(0) -- AMLA Random Bonuses
 aww_status.update_feature_10(0) -- Epic Leaders
@@ -141,5 +143,5 @@ in the addon base directory (where the _main.cfg is).
 Thanks
 -----------
 Some of theses features are inspired from existing code, saving me lot of times.
-A big thanks particularly to Eagle 11, Ravana, Bob_The_Mighty, for their creation.
+A big thanks particularly to Eagle 11, Ravana, Bob_The_Mighty, Dugi, for their creation.
 And a huge thanks for all developers and Wesnoth WML wiki contributors !
