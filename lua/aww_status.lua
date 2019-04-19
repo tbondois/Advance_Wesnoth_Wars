@@ -4,21 +4,9 @@
 
 local _ = wesnoth.textdomain 'aww'
 
-
--- CUSTOM WML TAGS :
-
--- used in mods/10_gifted_leader_hero.cfg, mods/11_ninja.cfg
-function wesnoth.wml_actions.aww_remove_trait(cfg)
-	local trait_id = cfg.trait_id
-	for _,unit in ipairs(wesnoth.get_units(cfg)) do
-		wesnoth.remove_modifications(unit, {id = trait_id}, "trait")
-	end
-end
-
-
 aww_status = {
 	title = _"Advanced Wesnoth Wars",
-	version = "1.14.14.3",
+	version = "1.14.14.4",
 	FEATURE_IDS = {
 		[1]  = "aww_01_enable_randomless_combats",
 		[2]  = "aww_02_squad_mode",
@@ -503,6 +491,17 @@ end
 -- DEPRECATED alias for run(), for retrocompatibility in dev mode :
 function aww_status.welcome()
 	aww_status.run()
+end
+
+
+-- CUSTOM WML TAGS :
+
+-- used in mods/10_gifted_leader_hero.cfg, mods/11_ninja.cfg
+function wesnoth.wml_actions.aww_remove_trait(cfg)
+	local trait_id = cfg.trait_id
+	for _,unit in ipairs(wesnoth.get_units(cfg)) do
+		wesnoth.remove_modifications(unit, {id = trait_id}, "trait")
+	end
 end
 
 -- aww_status.run() -- load aww_status.up.lua instead

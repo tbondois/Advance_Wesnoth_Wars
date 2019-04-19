@@ -11,3 +11,4 @@ meta.xml
 *.stackdump
 *.out
 *.log
+*.bk

@@ -11,7 +11,7 @@ It's a mod  for "Battle for Wesnoth" open-source videogame.
 * Changelog : see [CHANGELOG.md](CHANGELOG.md)
 * License : [GNU-GPL](LICENSE.md)
 * Code Repository [on GitHub](https://github.com/tbondois/Advance_Wesnoth_Wars)
-* Dedicated forum  [thread](https://forums.wesnoth.org/viewtopic.php?f=15&t=49454)
+* Dedicated [forum thread](https://forums.wesnoth.org/viewtopic.php?f=15&t=49454)
 
 
 DISCLAIMER FOR MODDERS
@@ -19,7 +19,6 @@ DISCLAIMER FOR MODDERS
 
 You can reuse the code of this mod in your own creations, without asking my authorization, only if you share it with the same License, freely.
 But I will really appreciate to know my code is used on your project, and that you credit my work somewhere in your code.
-
 
 
 Description

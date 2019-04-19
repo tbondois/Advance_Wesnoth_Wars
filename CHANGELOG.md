@@ -4,11 +4,18 @@ For more clarity about compatibility, first 2 version numbers will follow base g
 
 So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremented for new features ; Y is increment for fixes/optimisations.
 
-## [1.14.14.4] - WIP
+## [1.14.14.4] - 2019-04-20
 
 ### Changed
-- Optimised disabling of Feature #12 Berserk Tweak
 - Some float text colors
+- Colors or trait name epic (gold), squad swarm special (cyan) on units properties.
+- All traits (epic, ninja) and abilities/weapons-special (fury, bloodthirsty, distract, camouflage, custom regen...) defined in the mod are in italic on unit properties, to make a distinction from what was added by the mod.
+
+### Fixed
+- Optimised disabling of Feature #12 Berserk Tweak
+
+### Deleted
+- old lua/aww_combats.lua
 
 ## [1.14.14.3] - 2019-04-16
 

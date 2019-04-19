@@ -172,7 +172,7 @@ function aww_duel.modify_unit_specials(att_unit, def_unit)
 							weapon_hit_chance = aww_duel.get_special_modifier_value(weapon_hit_chance, unit_data[a][2][wa][2][s][2], (unit_data.id == att_unit.id), (unit_data.id == def_unit.id))
 						end
 
-						-- do not include here, as damage / attacks special are takein in account after this function :
+						-- Do NOT enable theses 2 block here, as damage / attacks special are taken in account after this function :
 
 						-- if unit_data[a][2][wa][2][s][1] == "damage" and (not unit_data[a][2][wa][2][s][2].id or unit_data[a][2][wa][2][s][2].id ~= aww_duel.SPECIAL_DAMAGE_ID) then
 						-- 	weapon_base_damage = aww_duel.get_special_modifier_value(weapon_base_damage, unit_data[a][2][wa][2][s][2], (unit_data.id == att_unit.id), (unit_data.id == def_unit.id))
@@ -332,7 +332,7 @@ function aww_duel.special_estimation_dummy(estim_damage, estim_strikes, hit_chan
 	end
 
 	local descr = _"estimated with" .. string.format(" %s x %s - base %s%%", estim_damage, estim_strikes, hit_chance)
-	if aww_status.feature_02 == 1 then
+	if aww_status.feature_02 > 0 then
 		descr =  descr .. " - " .. _"HP" .. string.format(" %s/%s", hp, max_hp)
 	end
 
@@ -340,10 +340,10 @@ function aww_duel.special_estimation_dummy(estim_damage, estim_strikes, hit_chan
 	return {
 		"dummy" , {
 			id=aww_duel.SPECIAL_ESTIMATION_DUMMY_ID,
-			name = "<span color='#7FFFD4'>"
+			name = "<span color='#7FFFD4'><i>"
 				.. aww_duel.ARROW_CHAR
 				.. string.format("%sx%s ", display_damage, display_strikes)
-				.. "</span>",
+				.. "</i></span>",
 			cumulative = true,
 			description= descr,
 		}
@@ -593,15 +593,16 @@ function aww_duel.estimate_weapons_special(unit)
 				end -- if specials
 			end -- foreach wa (weapon attribute)
 
-			local damage_ratio  = aww_duel.get_new_damage_ratio(special_damage, special_hit_chance, weapon_strikes, hp_ratio)
-			local strikes_ratio = aww_duel.get_new_strikes_ratio(special_strikes, hp_ratio, ignore_strike_edit)
-			--local estim_strikes = aww_duel.get_new_strikes_number(special_strikes, hp_ratio, ignore_strike_edit)
-			local estim_damage  = special_damage * damage_ratio
-			local estim_strikes = special_strikes * strikes_ratio
-
-			local new_special_estim_data = aww_duel.special_estimation_dummy(estim_damage, estim_strikes, special_hit_chance, hp, max_hp)
 
 			if aww_status.feature_01 or aww_status.feature_02 == 1 or (aww_status.feature_02 == 2 and special_strikes ==1) then
+
+				local damage_ratio  = aww_duel.get_new_damage_ratio(special_damage, special_hit_chance, weapon_strikes, hp_ratio)
+				local strikes_ratio = aww_duel.get_new_strikes_ratio(special_strikes, hp_ratio, ignore_strike_edit)
+				local estim_damage  = special_damage * damage_ratio
+				local estim_strikes = special_strikes * strikes_ratio
+
+				local new_special_estim_data = aww_duel.special_estimation_dummy(estim_damage, estim_strikes, special_hit_chance, hp, max_hp)
+
 				if current_weapon_stat ~= new_special_estim_data[2].name then
 					unit_to_update = true
 					--aww_duel.debug_message("to update !")
@@ -645,7 +646,6 @@ function aww_duel.debug_message_side(msg)
 	end
 	return false
 end
-
 
 
 function aww_duel.debug_message(msg)
