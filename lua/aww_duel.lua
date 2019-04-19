@@ -340,10 +340,10 @@ function aww_duel.special_estimation_dummy(estim_damage, estim_strikes, hit_chan
 	return {
 		"dummy" , {
 			id=aww_duel.SPECIAL_ESTIMATION_DUMMY_ID,
-			name = "<span color='#7FFFD4'><i>"
+			name = "<span color='#7FFFD4'>"
 				.. aww_duel.ARROW_CHAR
 				.. string.format("%sx%s ", display_damage, display_strikes)
-				.. "</i></span>",
+				.. "</span>",
 			cumulative = true,
 			description= descr,
 		}
@@ -354,7 +354,7 @@ end
 function aww_duel.description_no_random_combats()
 	local descr = ""
 	if aww_status.feature_01 then
-		descr = aww_duel.ARROW_CHAR
+		descr = "- "
 			.. _"No Random Combats"
 			.. " - "
 			.. _"Attacks will never randomly miss, misses probabilities is instead used as damage reduction."
@@ -367,7 +367,7 @@ end
 function aww_duel.description_squad_mode_custom()
 	local descr = ""
 	if aww_status.feature_02 == 1 then
-		descr = aww_duel.ARROW_CHAR
+		descr = "- "
 			.. _"Squad Mode"
 			.. " : "
 			.. _"Custom"
