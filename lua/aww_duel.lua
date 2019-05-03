@@ -356,7 +356,7 @@ function aww_duel.description_no_random_combats()
 	if aww_status.feature_01 then
 		descr = "- "
 			.. _"No Random Combats"
-			.. " - "
+			.. " : "
 			.. _"Attacks will never randomly miss, misses probabilities is instead used as damage reduction."
 			.. "\n"
 	end

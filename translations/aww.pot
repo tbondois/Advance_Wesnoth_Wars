@@ -704,7 +704,7 @@ msgstr ""
 
 #. [checkbox]: id=aww_13_enable_ambushed_fix, description=#13. 
 #: Advance_Wesnoth_Wars\mods\options.cfg:143
-msgid "An ambush will trigger a quick combat in which the ambushed unit can't counter-attack. Next turn, the ambusher will not be able to hide neither preparing another suprise attack. Awesome combined with NINJA WARS!."
+msgid "An ambush will trigger a quick combat in which the ambushed unit can't counter-attack. Next turn, the ambusher will not be able to hide neither preparing another surprise attack. Awesome combined with NINJA WARS!."
 msgstr ""
 
 #. [checkbox]: id=aww_11_enable_ninja, description=#11. 
