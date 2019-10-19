@@ -4,11 +4,14 @@ For more clarity about compatibility, first 2 version numbers will follow base g
 
 So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremented for new features ; Y is increment for fixes/optimisations.
 
-## [1.14.15.0] - 2019-10-19
+## [1.14.15.1] - 2019-10-19
 
 ### Added
 - Feature #01 : damage table on attack description
 - Feature #01 : special hit 100% not cumulative
+
+### Fixed
+- Ignore special chance_to_hit when total < 50% (campaign The Ravagers)
 
 ## [1.14.14.5] - 2019-05-04
 

@@ -5,6 +5,7 @@
 -- Features concerned : 01,02, 07, 08
 -- LOAD THIS SCRIPT ONLY IF FEATURES 01 AND/OR 02 ARE ENABLED
 -- TODO find how to update unit without _put, because it triggered unit placed in the middle of the attack
+-- TODO manage bonuses of damage day/light and specific ennemyes ? apparently multiplier don't cover it
 
 local helper = wesnoth.require "lua/helper.lua"
 
@@ -50,8 +51,8 @@ function wesnoth.wml_actions.aww_attack_action(cfg)
 	filter         = helper.get_child(cfg, "filter_second")
 	local def_unit = wesnoth.get_units(filter)[1]
 
-	aww_duel.modify_unit_specials(att_unit, def_unit)
-	aww_duel.modify_unit_specials(def_unit, att_unit)
+	aww_duel.modify_unit_specials_multipliers(att_unit, def_unit)
+	aww_duel.modify_unit_specials_multipliers(def_unit, att_unit)
 end
 
 
@@ -98,7 +99,7 @@ wesnoth.wml_actions.event {
 }
 function wesnoth.wml_actions.aww_estimate_weapons_special(cfg)
 	local unit = wesnoth.get_units(cfg)[1]
-	aww_duel.estimate_weapons_special(unit)
+	aww_duel.estimate_weapons_special_display(unit)
 end
 
 
@@ -110,7 +111,7 @@ function aww_duel.is_enabled()
 end
 
 
-function aww_duel.modify_unit_specials(att_unit, def_unit)
+function aww_duel.modify_unit_specials_multipliers(att_unit, def_unit)
 	if not aww_duel.is_enabled() then
 		return
 	end
@@ -188,7 +189,15 @@ function aww_duel.modify_unit_specials(att_unit, def_unit)
 			end -- foreach wa (weapon attribute)
 
 
+
 			if aww_status.feature_01 then
+
+				aww_duel.debug_message_side("special hit chance weapon & att_terrain_hit_chance ".. string.format("%s & %s", weapon_hit_chance, att_terrain_hit_chance))
+				if weapon_hit_chance < att_terrain_hit_chance then
+					weapon_hit_chance = att_terrain_hit_chance
+					aww_duel.debug_message_side("special hit chance weapon ignored")
+				end
+
 				if not has_specials then
 					aww_duel.debug_message_side("- Specials attacks : LINE CREATION")
 					table.insert(unit_data[a][2], { "specials", { aww_duel.special_chance_to_hit_100() }})
@@ -200,7 +209,7 @@ function aww_duel.modify_unit_specials(att_unit, def_unit)
 			local damage_ratio   = aww_duel.get_new_damage_ratio(weapon_base_damage, weapon_hit_chance, weapon_strikes, att_hp_ratio)
 			local strikes_ratio  = aww_duel.get_new_strikes_ratio(weapon_strikes, att_hp_ratio, ignore_strike_edit)
 
-			if damage_ratio ~= 1  then
+			if damage_ratio ~= 1 then
 				table.insert(unit_data[a][2][specials_index][2], aww_duel.special_damage_multiplier(damage_ratio))
 			end
 
@@ -248,10 +257,10 @@ function aww_duel.remove_tmp_specials(unit)
 
 							--aww_duel.debug_message(string.format("special id = %s", special_id))
 
-							if (special_id == aww_duel.SPECIAL_CHANCE_TO_HIT_ID
+							if special_id == aww_duel.SPECIAL_CHANCE_TO_HIT_ID
 							 or special_id == aww_duel.SPECIAL_DAMAGE_ID
 							 or special_id == aww_duel.SPECIAL_STRIKES_ID
-							) then
+							then
 								to_update = true
 								--aww_duel.debug_message(string.format("deleted special %s, a=%s, wa=%s, s=%s", special_id, a, wa, s))
 								--aww_duel.debug_message_table(unit_data[a][2][wa])
@@ -283,8 +292,8 @@ function aww_duel.special_chance_to_hit_100()
 		"chance_to_hit" , {
 			id=aww_duel.SPECIAL_CHANCE_TO_HIT_ID,
 			name = aww_duel.ARROW_CHAR .. _"no random misses",
-			value=100,
-			cumulative = false,
+			value=300,
+			cumulative = true,
 			--description = descr,
 		}
 	}
@@ -319,34 +328,50 @@ function aww_duel.special_strikes_multiplier(multiplier)
 end
 
 
-function aww_duel.special_estimation_dummy(estim_damage, estim_strikes, hit_chance, hp, max_hp)
-	if not aww_duel.is_enabled() then
-		return
-	end
+function aww_duel.special_estimation_dummy(base_damage, base_strikes, hit_chance, hp_ratio, ignore_strike_edit)
+
+	aww_duel.debug_message_side(string.format("special_estimation_dummy: base_damage=%s, base_strikes=%s, hit_chance=%s, hp_ratio=%s, ignore_strike_edit=%s", base_damage, base_strikes, hit_chance, hp_ratio, ignore_strike_edit))
+
+	local damage_ratio  = aww_duel.get_new_damage_ratio(base_damage, hit_chance, base_strikes, hp_ratio)
+	local strikes_ratio = aww_duel.get_new_strikes_ratio(base_strikes, hp_ratio, ignore_strike_edit)
+	local estim_damage  = base_damage * damage_ratio
+	local estim_strikes = base_strikes * strikes_ratio
+
 	local display_damage  =  math.floor(estim_damage)
 	local display_strikes =  math.floor(estim_strikes)
 
-	if aww_status.feature_01 and hit_chance >= 100 then
-		local min_damage = aww_duel.round(.2 * estim_damage) -- .2 to simulate 20% terrain bonus (the minimum in core game)
+	local min_damage = aww_duel.round(.2 * estim_damage) -- .2 to simulate 20% terrain bonus (the minimum in core game)
+	if aww_status.feature_01 then
+		if hit_chance < 100 then
+			min_damage = display_damage
+			local max_damage_ratio = aww_duel.get_new_damage_ratio(base_damage, 100, base_strikes, hp_ratio)
+			display_damage = math.floor(base_damage * max_damage_ratio)
+		end
 		display_damage = string.format("(%s-%s)", min_damage, display_damage)
 	end
 
-	local descr = _"estimated with" .. string.format(" %s x %s (base %s%%)", estim_damage, estim_strikes, hit_chance)
+	local descr = _"estimated with" .. string.format(" %s x %s (defense %s%%)", estim_damage, estim_strikes, hit_chance)
+	if aww_status.feature_01 and aww_status.feature_08  ~= 0 then
+		descr =  descr .. "\n - " .. _"Increased Damage" .. _" (option) : ".. aww_status.feature_08 .. "%"
+	end
 	if aww_status.feature_02 > 0 then
-		descr =  descr .. " - " .. _"HP" .. string.format(" %s/%s", hp, max_hp)
+		descr =  descr .. "\n - " .. _"HP ratio" .. string.format(" %s%%", hp_ratio)
 	end
 
 	descr = descr .. "\n" .. aww_duel.description_no_random_combats() .. aww_duel.description_squad_mode_custom()
-	if (aww_status.feature_01 and hit_chance >= 100) then
-		descr = descr .. "\n" .. _"- Damages based on defender terrain :"
-		descr = descr .. "\n" .. "0% : "  .. string.format("%sx%s", aww_duel.round(estim_damage * 1), estim_strikes)
-		descr = descr .. "\n" .. "20% : "  .. string.format("%sx%s", aww_duel.round(estim_damage * .8), estim_strikes)
-		descr = descr .. "\n" .. "30% : "  .. string.format("%sx%s", aww_duel.round(estim_damage * .7), estim_strikes)
-		descr = descr .. "\n" .. "40% : "  .. string.format("%sx%s", aww_duel.round(estim_damage * 0.6), estim_strikes)
-		descr = descr .. "\n" .. "50% : "  .. string.format("%sx%s", aww_duel.round(estim_damage * 0.5), estim_strikes)
-		descr = descr .. "\n" .. "60% : "  .. string.format("%sx%s", aww_duel.round(estim_damage * 0.4), estim_strikes)
-		descr = descr .. "\n" .. "70% : "  .. string.format("%sx%s", aww_duel.round(estim_damage * 0.3), estim_strikes)
-		descr = descr .. "\n" .. "80% : "  .. string.format("%sx%s", aww_duel.round(estim_damage * 0.2), estim_strikes)
+	if hit_chance >= 100 then
+		-- todo see if core game use a round or a math.floor
+		descr = descr .. "\n" .. _"- Damages based on defense terrain bonus where enemy is :"
+		descr = descr .. "\n" .. aww_duel.info_quick_estim(base_damage, base_strikes, 100, hp_ratio, ignore_strike_edit)
+		descr = descr .. "\n" .. aww_duel.info_quick_estim(base_damage, base_strikes, 80, hp_ratio, ignore_strike_edit)
+		descr = descr .. "\n" .. aww_duel.info_quick_estim(base_damage, base_strikes, 70, hp_ratio, ignore_strike_edit)
+		descr = descr .. "\n" .. aww_duel.info_quick_estim(base_damage, base_strikes, 60, hp_ratio, ignore_strike_edit)
+		descr = descr .. "\n" .. aww_duel.info_quick_estim(base_damage, base_strikes, 50, hp_ratio, ignore_strike_edit)
+		descr = descr .. "\n" .. aww_duel.info_quick_estim(base_damage, base_strikes, 40, hp_ratio, ignore_strike_edit)
+		descr = descr .. "\n" .. aww_duel.info_quick_estim(base_damage, base_strikes, 30, hp_ratio, ignore_strike_edit)
+		descr = descr .. "\n" .. aww_duel.info_quick_estim(base_damage, base_strikes, 20, hp_ratio, ignore_strike_edit)
+	else
+		descr = descr .. "\n" .. _"- Max terrain defense against this attack :" .. string.format("%s%%", 100 - hit_chance)
 	end
 
 	return {
@@ -362,6 +387,22 @@ function aww_duel.special_estimation_dummy(estim_damage, estim_strikes, hit_chan
 	}
 end
 
+function aww_duel.info_quick_estim(base_damage, base_strikes, hit_chance, hp_ratio, ignore_strike_edit)
+
+	aww_duel.debug_message_side(string.format("info_quick_estim: base_damage=%s, base_strikes=%s, hit_chance=%s, hp_ratio=%s, ignore_strike_edit=%s", base_damage, base_strikes, hit_chance, hp_ratio, ignore_strike_edit))
+
+	local damage_ratio  = aww_duel.get_new_damage_ratio(base_damage, hit_chance, base_strikes, hp_ratio)
+	local strikes_ratio = aww_duel.get_new_strikes_ratio(base_strikes, hp_ratio, ignore_strike_edit)
+
+	local estim_damage  = base_damage * damage_ratio
+	local estim_strikes = base_strikes * strikes_ratio
+
+	local display_damage  =  math.floor(estim_damage)
+	local display_strikes =  math.floor(estim_strikes)
+
+	local defense = 100 - hit_chance;
+	return string.format("%s%% : %sx%s", defense, display_damage, display_strikes)
+end
 
 function aww_duel.description_no_random_combats()
 	local descr = ""
@@ -455,7 +496,7 @@ function aww_duel.get_new_damage_ratio(weapon_damage, weapon_hit_chance, weapon_
 	end
 	--aww_duel.debug_message_side(string.format("base damage multiplier = %s", damage_ratio))
 
-	if aww_status.feature_02 >= 1 and weapon_strikes == 1 and hp_ratio < 1  then
+	if aww_status.feature_02 >= 1 and weapon_strikes == 1 and hp_ratio < 1 then
 		if aww_status.feature_01 then
 			-- both feature combined can make the units hitting single strikes making too low damage when hurt, so we lift up by 30% (max 1) :
 			local hp_ratio_boosted = math.min(1, .3 + hp_ratio)
@@ -525,7 +566,7 @@ function aww_duel.get_special_modifier_value(base_value, special_data, offense_t
 end
 
 
-function aww_duel.estimate_weapons_special(unit)
+function aww_duel.estimate_weapons_special_display(unit)
 
 	local unit_to_update = false -- indicates if at least a weapon data has changed, so we save the unit
 	local base_hit_chance = 100
@@ -574,6 +615,7 @@ function aww_duel.estimate_weapons_special(unit)
 
 						if unit_data[a][2][wa][2][s][1] == "chance_to_hit" and (not unit_data[a][2][wa][2][s][2].id or unit_data[a][2][wa][2][s][2].id ~= aww_duel.SPECIAL_CHANCE_TO_HIT_ID) then
 							special_hit_chance = aww_duel.get_special_modifier_value(special_hit_chance, unit_data[a][2][wa][2][s][2], true, false)
+							-- will be a variable between 20 and 80%. It's the opposite of the defense % on terrains
 						end
 
 						-- estimation of damage / attacks  (do not take everything in account)
@@ -605,15 +647,15 @@ function aww_duel.estimate_weapons_special(unit)
 				end -- if specials
 			end -- foreach wa (weapon attribute)
 
-
 			if aww_status.feature_01 or aww_status.feature_02 == 1 or (aww_status.feature_02 == 2 and special_strikes == 1) then
 
-				local damage_ratio  = aww_duel.get_new_damage_ratio(special_damage, special_hit_chance, weapon_strikes, hp_ratio)
-				local strikes_ratio = aww_duel.get_new_strikes_ratio(special_strikes, hp_ratio, ignore_strike_edit)
-				local estim_damage  = special_damage * damage_ratio
-				local estim_strikes = special_strikes * strikes_ratio
+				aww_duel.debug_message_side("special hit chance ".. string.format("%s", special_hit_chance))
+				if special_hit_chance < 60 then
+					special_hit_chance = base_hit_chance
+					aww_duel.debug_message_side("special hit chance ignored")
+				end
 
-				local new_special_estim_data = aww_duel.special_estimation_dummy(estim_damage, estim_strikes, special_hit_chance, hp, max_hp)
+				local new_special_estim_data = aww_duel.special_estimation_dummy(special_damage, special_strikes, special_hit_chance, hp_ratio, ignore_strike_edit)
 
 				if current_weapon_stat ~= new_special_estim_data[2].name then
 					unit_to_update = true
