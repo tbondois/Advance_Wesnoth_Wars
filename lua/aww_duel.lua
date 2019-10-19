@@ -330,7 +330,8 @@ end
 
 function aww_duel.special_estimation_dummy(base_damage, base_strikes, hit_chance, hp_ratio, ignore_strike_edit)
 
-	aww_duel.debug_message_side(string.format("special_estimation_dummy: base_damage=%s, base_strikes=%s, hit_chance=%s, hp_ratio=%s, ignore_strike_edit=%s", base_damage, base_strikes, hit_chance, hp_ratio, ignore_strike_edit))
+	--aww_duel.debug_message_side(string.format("special_estimation_dummy: base_damage=%s, base_strikes=%s, hit_chance=%s, hp_ratio=%s, ignore_strike_edit=%s", base_damage, base_strikes, hit_chance, hp_ratio, ignore_strike_edit))
+	hit_chance = math.max(0, hit_chance)
 
 	local damage_ratio  = aww_duel.get_new_damage_ratio(base_damage, hit_chance, base_strikes, hp_ratio)
 	local strikes_ratio = aww_duel.get_new_strikes_ratio(base_strikes, hp_ratio, ignore_strike_edit)
@@ -389,7 +390,8 @@ end
 
 function aww_duel.info_quick_estim(base_damage, base_strikes, hit_chance, hp_ratio, ignore_strike_edit)
 
-	aww_duel.debug_message_side(string.format("info_quick_estim: base_damage=%s, base_strikes=%s, hit_chance=%s, hp_ratio=%s, ignore_strike_edit=%s", base_damage, base_strikes, hit_chance, hp_ratio, ignore_strike_edit))
+	--aww_duel.debug_message_side(string.format("info_quick_estim: base_damage=%s, base_strikes=%s, hit_chance=%s, hp_ratio=%s, ignore_strike_edit=%s", base_damage, base_strikes, hit_chance, hp_ratio, ignore_strike_edit))
+	hit_chance = math.max(0, hit_chance)
 
 	local damage_ratio  = aww_duel.get_new_damage_ratio(base_damage, hit_chance, base_strikes, hp_ratio)
 	local strikes_ratio = aww_duel.get_new_strikes_ratio(base_strikes, hp_ratio, ignore_strike_edit)
@@ -649,10 +651,10 @@ function aww_duel.estimate_weapons_special_display(unit)
 
 			if aww_status.feature_01 or aww_status.feature_02 == 1 or (aww_status.feature_02 == 2 and special_strikes == 1) then
 
-				aww_duel.debug_message_side("special hit chance ".. string.format("%s", special_hit_chance))
+				--aww_duel.debug_message_side("special hit chance ".. string.format("%s", special_hit_chance))
 				if special_hit_chance < 60 then
 					special_hit_chance = base_hit_chance
-					aww_duel.debug_message_side("special hit chance ignored")
+					--aww_duel.debug_message_side("special hit chance ignored")
 				end
 
 				local new_special_estim_data = aww_duel.special_estimation_dummy(special_damage, special_strikes, special_hit_chance, hp_ratio, ignore_strike_edit)
