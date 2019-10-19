@@ -284,7 +284,7 @@ function aww_duel.special_chance_to_hit_100()
 			id=aww_duel.SPECIAL_CHANCE_TO_HIT_ID,
 			name = aww_duel.ARROW_CHAR .. _"no random misses",
 			value=100,
-			cumulative = true,
+			cumulative = false,
 			--description = descr,
 		}
 	}
@@ -331,12 +331,24 @@ function aww_duel.special_estimation_dummy(estim_damage, estim_strikes, hit_chan
 		display_damage = string.format("(%s-%s)", min_damage, display_damage)
 	end
 
-	local descr = _"estimated with" .. string.format(" %s x %s - base %s%%", estim_damage, estim_strikes, hit_chance)
+	local descr = _"estimated with" .. string.format(" %s x %s (base %s%%)", estim_damage, estim_strikes, hit_chance)
 	if aww_status.feature_02 > 0 then
 		descr =  descr .. " - " .. _"HP" .. string.format(" %s/%s", hp, max_hp)
 	end
 
 	descr = descr .. "\n" .. aww_duel.description_no_random_combats() .. aww_duel.description_squad_mode_custom()
+	if (aww_status.feature_01 and hit_chance >= 100) then
+		descr = descr .. "\n" .. _"- Damages based on defender terrain :"
+		descr = descr .. "\n" .. "0% : "  .. string.format("%sx%s", aww_duel.round(estim_damage * 1), estim_strikes)
+		descr = descr .. "\n" .. "20% : "  .. string.format("%sx%s", aww_duel.round(estim_damage * .8), estim_strikes)
+		descr = descr .. "\n" .. "30% : "  .. string.format("%sx%s", aww_duel.round(estim_damage * .7), estim_strikes)
+		descr = descr .. "\n" .. "40% : "  .. string.format("%sx%s", aww_duel.round(estim_damage * 0.6), estim_strikes)
+		descr = descr .. "\n" .. "50% : "  .. string.format("%sx%s", aww_duel.round(estim_damage * 0.5), estim_strikes)
+		descr = descr .. "\n" .. "60% : "  .. string.format("%sx%s", aww_duel.round(estim_damage * 0.4), estim_strikes)
+		descr = descr .. "\n" .. "70% : "  .. string.format("%sx%s", aww_duel.round(estim_damage * 0.3), estim_strikes)
+		descr = descr .. "\n" .. "80% : "  .. string.format("%sx%s", aww_duel.round(estim_damage * 0.2), estim_strikes)
+	end
+
 	return {
 		"dummy" , {
 			id=aww_duel.SPECIAL_ESTIMATION_DUMMY_ID,
@@ -594,7 +606,7 @@ function aww_duel.estimate_weapons_special(unit)
 			end -- foreach wa (weapon attribute)
 
 
-			if aww_status.feature_01 or aww_status.feature_02 == 1 or (aww_status.feature_02 == 2 and special_strikes ==1) then
+			if aww_status.feature_01 or aww_status.feature_02 == 1 or (aww_status.feature_02 == 2 and special_strikes == 1) then
 
 				local damage_ratio  = aww_duel.get_new_damage_ratio(special_damage, special_hit_chance, weapon_strikes, hp_ratio)
 				local strikes_ratio = aww_duel.get_new_strikes_ratio(special_strikes, hp_ratio, ignore_strike_edit)
