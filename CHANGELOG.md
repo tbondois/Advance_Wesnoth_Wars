@@ -10,8 +10,8 @@ So 1.14.X.Y means game was checked compatible with Wesnoth 1.14. X is incremente
 - Feature #01 : damage table on attack description
 - Feature #01 : special hit 100% not cumulative
 
-### Fixed
-- Ignore special chance_to_hit when total < 50% (campaign The Ravagers)
+### Changed
+- hit chance on special attack (magic etc) will be the minimum and not the absolute
 
 ## [1.14.14.5] - 2019-05-04
 

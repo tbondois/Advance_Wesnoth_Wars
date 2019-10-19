@@ -193,6 +193,7 @@ function aww_duel.modify_unit_specials_multipliers(att_unit, def_unit)
 			if aww_status.feature_01 then
 
 				aww_duel.debug_message_side("special hit chance weapon & att_terrain_hit_chance ".. string.format("%s & %s", weapon_hit_chance, att_terrain_hit_chance))
+				weapon_hit_chance = math.min(weapon_hit_chance, 100)
 				if weapon_hit_chance < att_terrain_hit_chance then
 					weapon_hit_chance = att_terrain_hit_chance
 					aww_duel.debug_message_side("special hit chance weapon ignored")
@@ -292,7 +293,7 @@ function aww_duel.special_chance_to_hit_100()
 		"chance_to_hit" , {
 			id=aww_duel.SPECIAL_CHANCE_TO_HIT_ID,
 			name = aww_duel.ARROW_CHAR .. _"no random misses",
-			value=300,
+			value=200,
 			cumulative = true,
 			--description = descr,
 		}
@@ -652,6 +653,7 @@ function aww_duel.estimate_weapons_special_display(unit)
 			if aww_status.feature_01 or aww_status.feature_02 == 1 or (aww_status.feature_02 == 2 and special_strikes == 1) then
 
 				--aww_duel.debug_message_side("special hit chance ".. string.format("%s", special_hit_chance))
+				special_hit_chance = math.min(special_hit_chance, 100)
 				if special_hit_chance < 60 then
 					special_hit_chance = base_hit_chance
 					--aww_duel.debug_message_side("special hit chance ignored")
