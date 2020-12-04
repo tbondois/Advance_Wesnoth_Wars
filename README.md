@@ -24,7 +24,7 @@ But I will really appreciate to know my code is used on your project, and that y
 Description
 -----------
 
-Last Wesnoth version tested : 1.14.7
+Last Wesnoth version tested : 1.14.14
 
 A collection of the most-requested options to make the mechanics more realistic and tactic, for people curious to experiment a new gameplay.
 It changes the combat approach, making it easier for good tacticians, harder for the others.
@@ -39,7 +39,7 @@ Features list :
 
 - Increased Damage : To compensate the high terrains defenses. Only applies for 'No Random Combats'.
 
-- Squad Mode (HP-related strikes) : Units lacking lot of HP do proportionally less attack strikes (or less damage for single-strike attacks). Swarm is a worse ratio (-1 strike if you miss just 1 HP), but native, so considered by AI. In both cases, minimum strikes will be 1, and will not apply for berserk.
+- Squad Mode (HP-related strikes) : Units lacking lot of HP do proportionally less attack strikes (or less damage for single-strike attacks). Swarm is a worse ratio (-1 strike if you miss just 1 HP), than native, but taken in account by AI. In both cases, minimum strikes will be 1, and will not apply for berserk.
 
 - Level-Up : Relative Healing : When an unit advance a level, instead of a full healing and being cured, it keep the missing HP, but statuses are cured. The special case when post-advancement Max-HP is smaller than pre-advanced is also handled.
 

@@ -589,7 +589,7 @@ msgstr ""
 
 #. [choice]: id=aww_02_squad_mode, description=#02. 
 #: Advance_Wesnoth_Wars\mods\options.cfg:32
-msgid "Units lacking lot of HP do proportionally less attack strikes (or less damage for single-strike attacks). Swarm is a worse ratio (-1 strike if you miss just 1 HP), but native, so considered by AI. In both cases : "
+msgid "Units lacking lot of HP do proportionally less attack strikes (or less damage for single-strike attacks). Swarm is a worse ratio (-1 strike if you miss just 1 HP), than native, but taken in account by AI. In both cases : "
 msgstr ""
 
 #. [choice]: id=aww_02_squad_mode, description=#02. 

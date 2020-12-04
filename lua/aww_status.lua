@@ -6,7 +6,7 @@ local _ = wesnoth.textdomain 'aww'
 
 aww_status = {
 	title = _"Advanced Wesnoth Wars",
-	version = "1.14.14.5",
+	version = "1.14.15.2", -- same as in _server.pbl
 	FEATURE_IDS = {
 		[1]  = "aww_01_enable_randomless_combats",
 		[2]  = "aww_02_squad_mode",
@@ -292,7 +292,7 @@ function aww_status.update_feature_03(value)
 end
 
 function aww_status.update_feature_04(value)
-	local id = 5
+	local id = 4
 	value = value *1
 	aww_status.feature_04 = value
 	local old_value = aww_status.get_feature_value(id, nil)
